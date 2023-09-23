@@ -361,7 +361,7 @@ body {
 }
 .gallary_section .gallary .gallary_item{
     width: 340px;
-    height: 230px;
+    height: 255px;
     margin-bottom: 40px;
     border-radius: 10px;
     overflow: hidden;
@@ -386,7 +386,8 @@ body {
 }
 
 .gallary_section .gallary .gallary_item .gallary_item_hover .item_desc{
-    height: 65px;
+    height: 100px;
+    overflow: hidden;
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 20px 10px;

@@ -25,10 +25,20 @@ Route::group(['middleware' => 'admin'], function(){
         return view('admin.index');
     });
 
-    // Route::resource('/admin/categories', 'AdminCategoriesController', ['names'=>[
-    //     'index'=>'admin.categories.index',
-    //     'edit'=>'admin.categories.edit'
-    // ]]);
+    Route::resource('/admin/services', 'AdminServicesController', ['names'=>[
+        'index'=>'admin.services.index',
+        'edit'=>'admin.services.edit'
+    ]]);
+
+    Route::resource('/admin/galleries', 'AdminGalleriesController', ['names'=>[
+        'index'=>'admin.galleries.index',
+        'edit'=>'admin.galleries.edit'
+    ]]);
+
+    Route::resource('/admin/socials', 'AdminSocialsController', ['names'=>[
+        'index'=>'admin.socials.index',
+        'edit'=>'admin.socials.edit'
+    ]]);
 
 });
 
