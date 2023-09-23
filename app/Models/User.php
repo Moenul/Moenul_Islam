@@ -26,6 +26,23 @@ class User extends Authenticatable
         'device_token',
     ];
 
+
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
+
+    public function isAdmin()
+    {
+        if($this->role->name  == 'Administrator'){
+            return true;
+        }
+
+        return false;
+    }
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
