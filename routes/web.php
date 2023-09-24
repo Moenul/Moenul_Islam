@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CkUploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,24 @@ Route::group(['middleware' => 'admin'], function(){
         'index'=>'admin.socials.index',
         'edit'=>'admin.socials.edit'
     ]]);
+
+    Route::resource('/admin/articals', 'AdminArticalsController', ['names'=>[
+        'index'=>'admin.articals.index',
+        'create'=>'admin.articals.create',
+        'edit'=>'admin.articals.edit'
+    ]]);
+
+    Route::resource('/admin/quotes', 'AdminQuotesController', ['names'=>[
+        'index'=>'admin.quotes.index',
+        'edit'=>'admin.quotes.edit'
+    ]]);
+
+    Route::resource('/admin/categories', 'AdminCategoriesController', ['names'=>[
+        'index'=>'admin.categories.index',
+        'edit'=>'admin.categories.edit'
+    ]]);
+
+    Route::post('upload',['App\Http\Controllers\CkUploadController', 'upload'])->name('ckeditor.upload');
 
 });
 
