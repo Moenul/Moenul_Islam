@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Artical extends Model
+class Artical extends Model implements Viewable
 {
     use HasFactory;
-
+    use InteractsWithViews;
     use Sluggable;
     public function sluggable(): array
     {

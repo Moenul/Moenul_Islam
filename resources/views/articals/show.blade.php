@@ -19,7 +19,7 @@
                 @if ($artical)
                 <h4>{{$artical->title}}</h4>
                 <div class="date">{{ \Carbon\Carbon::parse($artical->created_at)->format('d M Y') }}</div>
-                <div class="views">Views : {{$artical->views}}</div>
+                <div class="views">Views : {!! views($artical)->count() !!}</div>
                 <div class="artical_desc mt-3">
                     {!! $artical->content !!}
                 </div>

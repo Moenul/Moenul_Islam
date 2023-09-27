@@ -41,7 +41,11 @@
             <div class="panel_icon"><i class="fas fa-chart-line"></i></div>
             <div class="panel_content">
                 <h5>Total Visitor</h5>
-                <span>45</span>
+                <span>
+                    @if (App\Models\Artical::count())
+                    {!! views(App\Models\Artical::class)->count(); !!}
+                @endif
+                </span>
             </div>
         </div>
         </a>

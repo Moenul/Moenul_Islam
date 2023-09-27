@@ -7,6 +7,9 @@
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 <title>Admin Pannel</title>
+
+@yield('style')
+
 </head>
 <body>
 
@@ -52,6 +55,7 @@
 		} );
 </script>
 
+@yield('script')
 
 </body>
 </html>

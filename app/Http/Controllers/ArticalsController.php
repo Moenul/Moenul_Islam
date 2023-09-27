@@ -53,7 +53,7 @@ class ArticalsController extends Controller
     public function show($request)
     {
         $artical = Artical::where('slug', $request)->first();
-
+        views($artical)->cooldown($minutes = 5)->record();
         $quotes = Quote::inRandomOrder()->limit(3)->get();
 
         return view('articals.show', compact('artical','quotes'));
