@@ -33,66 +33,25 @@
 
 <div class="service_section">
     <div class="container">
-        <div class="service_bar">
-            <div class="logo_section">
-                <div class="logo_bar">
-                    <span class="iconify" data-icon="ph:note-pencil-light"></span>
+        @if ($services)
+            @foreach ($services as $service)
+            <div class="service_bar">
+                <div class="logo_section">
+                    <div class="logo_bar">
+                        <span class="iconify" data-icon="{{$service->service_icon}}"></span>
+                    </div>
+                </div>
+                <div class="name_section">{{$service->service_name}}</div>
+                <div class="desc_section"><p>{{$service->service_desc}}</p></div>
+                <div class="cool_title">{{$service->service_title}}</div>
+                <div class="cool_desc">{{$service->service_type}}</div>
+                <div class="skill_title">{{$service->service_component_title}}</div>
+                <div class="skill_desc">
+                    {{$service->service_components}}
                 </div>
             </div>
-            <div class="name_section">Designer</div>
-            <div class="desc_section"><p>I value simple content structure, clean design patterns, and thoughtful interactions.</p></div>
-            <div class="cool_title">Things I enjoy designing</div>
-            <div class="cool_desc">UI UX | Web | App </div>
-            <div class="skill_title">Design Tools</div>
-            <div class="skill_desc">
-                Pen & Paper <br>
-                Sketch <br>
-                Figma <br>
-                Illustrator <br>
-                Photoshop <br>
-            </div>
-        </div>
-
-        <div class="service_bar">
-            <div class="logo_section">
-                <div class="logo_bar">
-                    <span class="iconify" data-icon="ant-design:code-outlined"></span>
-                </div>
-            </div>
-            <div class="name_section">Frontend Developer</div>
-            <div class="desc_section"><p>I like to code things from scratch, and enjoy bringing ideas to life in the browser.</p></div>
-            <div class="cool_title">Things I maintain</div>
-            <div class="cool_desc">Responsive | Cool | User Friendly</div>
-            <div class="skill_title">Dev Tools</div>
-            <div class="skill_desc">
-                HTML 5 <br>
-                CSS 3 <br>
-                JavaScript <br>
-                Bootstrap <br>
-                WordPress <br>
-                Git <br>
-            </div>
-        </div>
-
-        <div class="service_bar">
-            <div class="logo_section">
-                <div class="logo_bar">
-                    <span class="iconify" data-icon="solar:sidebar-code-bold"></span>
-                </div>
-            </div>
-            <div class="name_section">Backend Developer</div>
-            <div class="desc_section"><p>I value simple content structure, clean design patterns, and thoughtful interactions.</p></div>
-            <div class="cool_title">Things I do</div>
-            <div class="cool_desc">E-Commerce | Startup | Social </div>
-            <div class="skill_title">Dev Languages</div>
-            <div class="skill_desc">
-                PHP <br>
-                Laravel <br>
-                Ajax <br>
-                SQL <br>
-                API Implementing <br>
-            </div>
-        </div>
+            @endforeach
+        @endif
     </div>
 </div>
 
@@ -102,54 +61,17 @@
         <div class="sub_title">Here are a few post of projects I've worked on.</div>
 
         <div class="gallary">
-            <div class="gallary_item">
-                <img src="/FrontEnd/Portfolio/images/dribbble-33.png">
-                <div class="gallary_item_hover">
-                    <div class="item_desc">Vancouver's tower crane rental service and support leader since 1974.</div>
-                    <a href=""><div class="item_button">Visit Website</div></a>
+            @if ($galleries)
+                @foreach ($galleries as $gallery)
+                <div class="gallary_item">
+                    <img src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images.jpg' }}">
+                    <div class="gallary_item_hover">
+                        <div class="item_desc">{{$gallery->desc}}</div>
+                        <a href="{{$gallery->link}}"><div class="item_button">Visit Website</div></a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="gallary_item">
-                <img src="/FrontEnd/Portfolio/images/dribbble-34.png">
-                <div class="gallary_item_hover">
-                    <div class="item_desc">Vancouver's tower crane rental service and support leader since 1974.</div>
-                    <a href=""><div class="item_button">Visit Website</div></a>
-                </div>
-            </div>
-
-            <div class="gallary_item">
-                <img src="/FrontEnd/Portfolio/images/website4.png">
-                <div class="gallary_item_hover">
-                    <div class="item_desc">Vancouver's tower crane rental service and support leader since 1974.</div>
-                    <a href=""><div class="item_button">Visit Website</div></a>
-                </div>
-            </div>
-
-            <div class="gallary_item">
-                <img src="/FrontEnd/Portfolio/images/1-Root-Studio-e1520589902386.jpg">
-                <div class="gallary_item_hover">
-                    <div class="item_desc">Vancouver's tower crane rental service and support leader since 1974.</div>
-                    <a href=""><div class="item_button">Visit Website</div></a>
-                </div>
-            </div>
-
-            <div class="gallary_item">
-                <img src="/FrontEnd/Portfolio/images/website1.png">
-                <div class="gallary_item_hover">
-                    <div class="item_desc">Vancouver's tower crane rental service and support leader since 1974.</div>
-                    <a href=""><div class="item_button">Visit Website</div></a>
-                </div>
-            </div>
-
-            <div class="gallary_item">
-                <img src="/FrontEnd/Portfolio/images/541255pothseba_domain_theme.png">
-                <div class="gallary_item_hover">
-                    <div class="item_desc">Vancouver's tower crane rental service and support leader since 1974.</div>
-                    <a href=""><div class="item_button">Visit Website</div></a>
-                </div>
-            </div>
-
+                @endforeach
+            @endif
         </div>
 
     </div>
@@ -201,24 +123,13 @@
             </div>
             <div class="social_section">
                 <div class="social_bar">
-                    <a href=""><div class="social_iteml" style="color:#0553A0;">
-                        <span class="iconify" data-icon="entypo-social:linkedin-with-circle"></span>
-                    </div></a>
-                    <a href=""><div class="social_iteml" style="color:#000000;">
-                        <span class="iconify" data-icon="cib:github"></span>
-                    </div></a>
-                    <a href=""><div class="social_iteml" style="color:#177CE1;">
-                        <span class="iconify" data-icon="bi:facebook"></span>
-                    </div></a>
-                    <a href=""><div class="social_iteml" style="color:#EA2727;">
-                        <span class="iconify" data-icon="entypo-social:youtube-with-circle"></span>
-                    </div></a>
-                    <a href=""><div class="social_iteml" style="color:#449FFA;">
-                        <span class="iconify" data-icon="formkit:twitter"></span>
-                    </div></a>
-                    <a href=""><div class="social_iteml" style="color:#3a97f5;">
-                        <span class="iconify" data-icon="entypo-social:skype-with-circle"></span>
-                    </div></a>
+                    @if ($socials)
+                        @foreach ($socials as $social)
+                        <a href="{{$social->social_link}}"><div class="social_iteml" style="color:{{$social->icon_color}};">
+                            <span class="iconify" data-icon="{{$social->social_icon}}"></span>
+                        </div></a>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -227,4 +138,10 @@
 </div>
 
 
+@endsection
+
+@section('footer_content')
+    {{-- Footer Content Include --}}
+    @include('includes.footer_content')
+    {{-- Footer Content Include --}}
 @endsection

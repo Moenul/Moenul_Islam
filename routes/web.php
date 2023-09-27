@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('logout/', 'Auth\loginController@logout');
+
 Route::group(['middleware' => 'admin'], function(){
 
     Route::get('/admin', function () {
@@ -60,6 +62,11 @@ Route::group(['middleware' => 'admin'], function(){
     Route::post('upload',['App\Http\Controllers\CkUploadController', 'upload'])->name('ckeditor.upload');
 
 });
+
+Route::resource('/articals', 'ArticalsController', ['names'=>[
+    'index'=>'articals.index',
+    'show'=>'articals.show',
+]]);
 
 
 Route::get('/', 'HomeController@index');

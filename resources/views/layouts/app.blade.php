@@ -28,13 +28,9 @@
 		<div class="scroll_to_top" onclick="topFunction()" id="myBtn">
 			<span class="iconify" data-icon="icon-park-outline:to-top"></span>
 		</div>
-		<div class="footer_content">
-			<div class="icon_bar">
-				<span class="iconify" data-icon="arcticons:workouttime"></span>
-			</div>
 
-			<p>Are you working on somthing great? I would love to help make it happen! Drop me a letter and start your project right now! Just do it.</p>
-		</div>
+		@yield('footer_content')
+
 		<div class="right_manager">
 			&copy; All Rights Reserved
 		</div>
@@ -58,16 +54,6 @@
 
 <!-- Setup and start animation! -->
 <script>
-
-var typed = new Typed('.auto-type', {
-	strings: ['DESIGNER', 'DEVELOPER'],
-	typeSpeed: 200,
-	backSpeed: 200,
-	backDelay: 1000,
-	cursorChar: "_",
-	loop: true
-});
-
 
 // --------- Custom Cursor ------------------
 
@@ -111,7 +97,22 @@ a.forEach(item => {
 
 // --------- Custom Cursor ------------------
 
+
+
+var typed = new Typed('.auto-type', {
+	strings: ['DESIGNER', 'DEVELOPER'],
+	typeSpeed: 200,
+	backSpeed: 200,
+	backDelay: 1000,
+	cursorChar: "_",
+	loop: true
+});
+
+
+
 </script>
+
+@yield('sctipt')
 
 </body>
 </html>

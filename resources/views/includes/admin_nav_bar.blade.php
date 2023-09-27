@@ -51,7 +51,7 @@
 			<div class="dropdown">
 				<div class="dropdown_title">Profile</div>
 				<a href="">Profile</a>
-				<a href="">Log Out</a>
+				<a href="{{ route('logout') }}">Log Out</a>
 			</div>
 		</li>
 

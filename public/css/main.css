@@ -97,7 +97,7 @@ body {
 /* /////  Header Section Start ------------------- */
 
 .header_section .nav_bar{
-    width: 85%;
+    width: 88%;
     height: 50px;
     position: fixed;
     top: 30px;
@@ -698,7 +698,7 @@ body {
     text-decoration: none;
     display: inline-block;
     width: 110px;
-    border: 1px solid;
+    border: 2px solid white;
     padding: 6px 15px;
     border-radius: 30px;
     background: var(--color-main);
@@ -777,9 +777,56 @@ body {
 /* /////  Artical Page End ------------------- */
 
 
+/* /////  Post Section Start ------------------- */
 
+.artical_section{
+    min-height: 100vh;
+}
+.artical_section .date{
+    width: calc(100% - 120px);
+    display: inline-block;
+    padding-left: 15px;
+}
+.artical_section .views{
+    width: 120px;
+    float: right;
+}
+.artical_section .artical_desc{
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+}
+.artical_section .artical_desc .image {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.artical_section .artical_desc img{
+    width: 100%;
+}
+.artical_section .artical_tags{
+    padding: 10px 10px 20px 10px;
+    background: #f7f7f7;
+    border-radius: 4px;
+}
+.artical_section .artical_tags .tags_title{
+    padding: 0px 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #464646;
+}
+.artical_section .artical_tags a{
+    text-decoration: none;
+    padding: 6px 20px;
+    background: #f3ecec;
+    margin: 5px;
+    border-radius: 3px;
+    border: 1px solid #e0e0e0;
+    color: black;
+    box-shadow: 1px 1px 4px #d0d0d0;
+}
 
-
+/* /////  Post Section Start ------------------- */
 
 
 
@@ -971,6 +1018,7 @@ body {
     display: block;
     padding: 6px 0px;
     background: none;
+    margin-top: -5px;
 }
 .header_section .nav_bar .nav_list li:hover iconify-icon{
     color: white;

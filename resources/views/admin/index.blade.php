@@ -26,17 +26,21 @@
         <div class="panel post_panel">
             <div class="panel_icon"><i class="fas fa-file-alt"></i></div>
             <div class="panel_content">
-                <h5>CPU trafic</h5>
-                <span>45</span>
+                <h5>Total Articals</h5>
+                <span>
+                @if (App\Models\Artical::count())
+                    {!! App\Models\Artical::count() !!}
+                @endif
+            </span>
             </div>
         </div>
         </a>
 
         <a href="">
         <div class="panel user_panel">
-            <div class="panel_icon"><i class="fas fa-users"></i></div>
+            <div class="panel_icon"><i class="fas fa-chart-line"></i></div>
             <div class="panel_content">
-                <h5>CPU trafic</h5>
+                <h5>Total Visitor</h5>
                 <span>45</span>
             </div>
         </div>
