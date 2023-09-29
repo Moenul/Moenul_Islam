@@ -25,6 +25,7 @@
 
     <div class="row">
         <div class="col-6">
+            @if ($quotes)
             <table class="table table-dark table-hover mx-auto">
                 <thead>
                 <tr>
@@ -34,7 +35,6 @@
                     <th style="width:80px; text-align:center;">Delete</th>
                 </tr>
                 </thead>
-                @if ($quotes)
                 <tbody>
                     @foreach ($quotes as $quote)
                     <tr>
@@ -49,15 +49,16 @@
                     </tr>
                     @endforeach
                 </tbody>
-                @endif
              </table>
+            {!! $quotes->links() !!}
+            @endif
         </div>
         <div class="col-6">
             <h5 class="text-center text-success">Add New Quote</h5>
             {!! Form::open(['method'=>'POST', 'action'=>'AdminQuotesController@store']) !!}
             <div class="form-group">
                 {!! Form::label('content','Quote Content:') !!}
-                {!! Form::textarea('content', null, ['class'=>'form-control','id'=>'editor']) !!}
+                {!! Form::textarea('content', null, ['class'=>'form-control','rows'=> 2]) !!}
             </div>
             <div class="form-group">
                 {!! Form::submit('Submit', ['class'=>'btn btn-success  float-right']) !!}

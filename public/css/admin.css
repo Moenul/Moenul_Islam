@@ -152,11 +152,12 @@ a{
 }
 .navigation .nav_bar .message .dropdown a .detail_bar .info .name{
     display: inline-block;
-    width: 65%;
+    width: 50%;
+    overflow: hidden;
 }
 .navigation .nav_bar .message .dropdown a .detail_bar .info .time{
     float: right;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .navigation .nav_bar .profile i img{

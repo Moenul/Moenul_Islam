@@ -31,7 +31,7 @@
 
             <div class="form-group">
                 {!! Form::label('content','Quote Content:') !!}
-                {!! Form::textarea('content', $quote->content, ['class'=>'form-control','id'=>'editor']) !!}
+                {!! Form::textarea('content', $quote->content, ['class'=>'form-control','rows'=> 2]) !!}
             </div>
 
             <div class="form-group">

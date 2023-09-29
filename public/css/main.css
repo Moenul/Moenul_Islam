@@ -4,6 +4,10 @@
     cursor: none;
 }
 @font-face {
+    font-family: "LiNiladriRongtuliUnicode";
+    src: url("../fonts/Li Alinur Tatsama Unicode.ttf");
+}
+@font-face {
     font-family: "Atkinson-Hyperlegible-Bold";
     src: url("../fonts/Atkinson-Hyperlegible-Bold-102.ttf");
 }
@@ -97,7 +101,7 @@ body {
 /* /////  Header Section Start ------------------- */
 
 .header_section .nav_bar{
-    width: 88%;
+    width: 90%;
     height: 50px;
     position: fixed;
     top: 30px;
@@ -332,6 +336,10 @@ body {
     font-size: 18px;
     line-height: 1.8;
 }
+.service_section .service_bar .skill_desc p{
+    margin-bottom: 0px;
+}
+
 /* /////  Service Section End ------------------- */
 
 
@@ -363,7 +371,8 @@ body {
     width: 340px;
     height: 255px;
     margin-bottom: 40px;
-    border-radius: 10px;
+    outline: 2px solid #29a68830;
+    border-radius: 8px;
     overflow: hidden;
     background: black;
     position: relative;
@@ -371,6 +380,7 @@ body {
 }
 .gallary_section .gallary .gallary_item img{
     width: 100%;
+    height: max-content;
     transition: all .3s ease-in-out;
 }
 .gallary_section .gallary .gallary_item .gallary_item_hover{
@@ -552,7 +562,7 @@ body {
     font-size: 17px;
     color: var(--color-smart-black);
 }
-.contact_section .contact_bar .mail_section button{
+.contact_section .contact_bar .mail_section input[type="submit"]{
     width: 100%;
     font-size: 24px;
     background: var(--color-main);
@@ -565,7 +575,7 @@ body {
 .contact_section .contact_bar .mail_section input:focus{
     outline: 1px solid var(--color-main);
 }
-.contact_section .contact_bar .mail_section button:hover{
+.contact_section .contact_bar .mail_section input[type="submit"]:hover{
     background: #0e8f70;
 }
 
@@ -665,6 +675,22 @@ body {
 /* /////  Scroll To Top End ------------------- */
 
 
+/* /////  Alert Box Start ------------------- */
+#flash_messsage{
+    width: 500px;
+    padding: 5px 20px;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+}
+#flash_messsage strong{
+    font-size: 14px;
+}
+/* /////  Alert Box End ------------------- */
+
+
 /* /////  Artical Page Start ------------------- */
 .artical_page {
     margin-top: 100px;
@@ -691,6 +717,7 @@ body {
     line-height: 1.5;
     font-family: inherit;
     color: var(--color-smart-black);
+    font-family: 'LiNiladriRongtuliUnicode', sans-serif;
 }
 
 
@@ -749,8 +776,11 @@ body {
     display: flex;
     align-items: center;
     box-shadow: -3px 5px 12px -3px #8aa9a7;
+    font-family: 'LiNiladriRongtuliUnicode', sans-serif;
 }
-
+.artical_page .quote_bar .quote p{
+    font-size: 16px !important;
+}
 
 .artical_page .quote_bar .quote:nth-child(1){
     background-color: #f5deb3;
@@ -781,6 +811,7 @@ body {
 
 .artical_section{
     min-height: 100vh;
+    font-family: 'LiNiladriRongtuliUnicode', sans-serif;
 }
 .artical_section .date{
     width: calc(100% - 120px);

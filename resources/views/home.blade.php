@@ -47,7 +47,7 @@
                 <div class="cool_desc">{{$service->service_type}}</div>
                 <div class="skill_title">{{$service->service_component_title}}</div>
                 <div class="skill_desc">
-                    {{$service->service_components}}
+                    {!! $service->service_components !!}
                 </div>
             </div>
             @endforeach
@@ -94,7 +94,7 @@
             <div class="button_title"><p>
                 I write about my feelings, thought, social issues, design, frontend dev, learning and life.
             </p></div>
-            <a href=""><div class="button">Read my Articles <span class="iconify" data-icon="cil:arrow-right"></span></div></a>
+            <a href="{{ url('/articals') }}"><div class="button">Read my Articles <span class="iconify" data-icon="cil:arrow-right"></span></div></a>
         </div>
     </div>
 </div>
@@ -108,7 +108,7 @@
 
         <div class="contact_bar">
             <div class="mail_section">
-                <form>
+                {{-- <form>
                     <div class="form-group">
                         <textarea class="form-control" rows="4" placeholder="Write Here ..."></textarea>
                     </div>
@@ -119,7 +119,22 @@
                         <input type="email" class="form-control" placeholder="example@mail.com">
                     </div>
                     <button type="submit" class="btn">Send</button>
-                </form>
+                </form> --}}
+                {!! Form::open(['method'=>'POST', 'action'=>'ContactMailsController@store', 'files'=>true]) !!}
+                    @csrf
+                    <div class="form-group">
+                        {!! Form::textarea('message', null, ['class'=>'form-control','rows'=>4, 'placeholder'=>'Write Here ...']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::text('subject', null, ['class'=>'form-control', 'placeholder'=>'Subject']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'example@mail.com', 'required'=>'required']) !!}
+                    </div>
+
+                        {!! Form::submit('Send', ['class'=>'btn']) !!}
+
+                {!! Form::close() !!}
             </div>
             <div class="social_section">
                 <div class="social_bar">

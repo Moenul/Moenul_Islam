@@ -30,6 +30,7 @@
                 <tr>
                     <th style="width:40px; text-align:center;">ID</th>
                     <th>Image</th>
+                    <th>Description</th>
                     <th style="width:80px; text-align:center;">Edit</th>
                     <th style="width:80px; text-align:center;">Delete</th>
                 </tr>
@@ -40,8 +41,11 @@
                     <tr>
                         <td style="width:40px; text-align:center;">{{$gallery->id}}</td>
                         <td>
-                            <img class="action_field border border-secondary" id="preview_img" width="200px" height="150px" src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images.jpg' }}">
+                            <div style=" width: 200px; height: 150px; overflow: hidden;" class="border border-secondary">
+                                <img width="100%" height="max-content" src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images_Landscape.jpg' }}">
+                            </div>
                         </td>
+                        <td>{{$gallery->desc}}</td>
                         <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.galleries.edit', $gallery->id) }}"><i class="far fa-edit text-warning"></i></a></td>
                         <td>
                         {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminGalleriesController@destroy', $gallery->id]]) !!}
@@ -59,8 +63,8 @@
         <div class="col-5">
             <h5 class="text-center text-success">Add New Gallery</h5>
             {!! Form::open(['method'=>'POST', 'action'=>'AdminGalleriesController@store', 'files'=>true]) !!}
-            <div class="mb-2 d-flex justify-content-center">
-                <img  class="action_field border border-secondary" id="preview_img" width="200px" height="150px"  src="{{ '/images/Empty_Images.jpg' }}">
+            <div style=" width: 200px; height: 150px; overflow: hidden; margin:0 auto;" class="border border-secondary">
+                <img class="action_field" width="100%" height="max-content" id="preview_img" src="{{ '/images/Empty_Images_Landscape.jpg' }}">
             </div>
             <div class="form-group">
                 <small class="form-text text-muted">Image Aspect Ratio 4:3</small>

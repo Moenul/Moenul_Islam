@@ -19,16 +19,17 @@
 
     <a href="{{ route('admin.categories.index') }}"><li class="side_nav_item"><i class="fas fa-shapes"></i><span>Category</span></li></a>
 
-    <a href=""><li class="side_nav_item"><i class="far fa-comments"></i><span>Comments</span></li></a>
+    {{-- <a href=""><li class="side_nav_item"><i class="far fa-comments"></i><span>Comments</span></li></a>
 
     <li class="side_nav_item"><i class="fas fa-users"></i><span>Users</span>
         <ul class="side_dropdown">
             <a href="">View All User</a>
             <a href="">Add User</a>
         </ul>
-    </li>
+    </li> --}}
 
-    <a href=""><li class="side_nav_item"><i class="far fa-envelope"></i><span>Mailbox</span></li></a>
+    <a href="{{ route('admin.mails.index') }}"><li class="side_nav_item"><i class="fas fa-envelope"></i><span>Mailbox</span></li></a>
+    {{-- <a href=""><li class="side_nav_item"><i class="far fa-envelope"></i><span>Mailbox</span></li></a> --}}
     <a href=""><li class="side_nav_item"><i class="far fa-bell"></i><span>Notification</span></li></a>
     <a href=""><li class="side_nav_item"><i class="fas fa-puzzle-piece"></i><span>Widget</span></li></a>
     <a href=""><li class="side_nav_item"><i class="fas fa-user"></i><span>Profile</span></li></a>

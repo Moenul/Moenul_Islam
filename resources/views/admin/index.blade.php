@@ -22,7 +22,7 @@
 
     <!-- start dashboard content -->
 
-        <a href="">
+        <a href="{{ route('admin.articals.index') }}">
         <div class="panel post_panel">
             <div class="panel_icon"><i class="fas fa-file-alt"></i></div>
             <div class="panel_content">
@@ -50,12 +50,16 @@
         </div>
         </a>
 
-        <a href="">
+        <a href="{{ route('admin.mails.index') }}">
         <div class="panel comment_panel">
-            <div class="panel_icon"><i class="far fa-comments"></i></div>
+            <div class="panel_icon"><i class="fas fa-envelope"></i></div>
             <div class="panel_content">
-                <h5>CPU trafic</h5>
-                <span>45</span>
+                <h5>Total Mails</h5>
+                <span>
+                    @if (App\Models\ContactMail::count())
+                        {!! App\Models\ContactMail::count() !!}
+                    @endif
+                </span>
             </div>
         </div>
         </a>

@@ -61,6 +61,11 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::post('upload',['App\Http\Controllers\CkUploadController', 'upload'])->name('ckeditor.upload');
 
+    Route::resource('/admin/mails', 'AdminMailsController', ['names'=>[
+        'index'=>'admin.mails.index',
+        'show'=>'admin.mails.show'
+    ]]);
+
 });
 
 Route::resource('/articals', 'ArticalsController', ['names'=>[
@@ -68,5 +73,6 @@ Route::resource('/articals', 'ArticalsController', ['names'=>[
     'show'=>'articals.show',
 ]]);
 
+Route::post('contactMail', 'ContactMailsController@store');
 
 Route::get('/', 'HomeController@index');

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Quote;
+use App\Models\ContactMail;
 
-class AdminQuotesController extends Controller
+class ContactMailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class AdminQuotesController extends Controller
      */
     public function index()
     {
-        $quotes = Quote::latest()->paginate(5);
-
-        return view('admin.quotes.index', compact('quotes'));
+        //
     }
 
     /**
@@ -37,8 +35,11 @@ class AdminQuotesController extends Controller
      */
     public function store(Request $request)
     {
-        Quote::create($request->all());
-        return redirect()->back()->with('success', 'Quote Successfully Created!');
+        $input = $request->all();
+
+        $contactMail = ContactMail::create($input);
+
+        return redirect()->back()->with('info', 'Your Mail Succesfully Delevered.');
     }
 
     /**
@@ -60,8 +61,7 @@ class AdminQuotesController extends Controller
      */
     public function edit($id)
     {
-        $quote = Quote::findOrFail($id);
-        return view('admin.quotes.edit', compact('quote'));
+        //
     }
 
     /**
@@ -73,9 +73,7 @@ class AdminQuotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $quote = Quote::findOrFail($id);
-        $quote->update($request->all());
-        return redirect('admin/quotes')->with('success', 'Quote Updated!');
+        //
     }
 
     /**
@@ -86,7 +84,6 @@ class AdminQuotesController extends Controller
      */
     public function destroy($id)
     {
-        Quote::findOrFail($id)->delete();
-        return redirect()->back()->with('warning', 'Quote Deleted!');
+        //
     }
 }

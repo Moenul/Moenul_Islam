@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('service_components','Service Components:') !!}
-                {!! Form::textarea('service_components',  $service->service_components, ['class'=>'form-control','rows'=> 5]) !!}
+                {!! Form::textarea('service_components',  $service->service_components, ['class'=>'form-control','id'=>'editor','rows'=> 5]) !!}
             </div>
             <div class="form-group">
                 <a href="../" class="btn btn-warning">Cancel</a>

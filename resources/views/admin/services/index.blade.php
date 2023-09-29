@@ -65,7 +65,7 @@
             {!! Form::open(['method'=>'POST', 'action'=>'AdminServicesController@store']) !!}
             <div class="form-group">
                 {!! Form::label('service_icon','Service Icon:') !!}
-                {!! Form::text('service_icon', null, ['class'=>'form-control']) !!}
+                {!! Form::text('service_icon', null, ['class'=>'form-control', 'placeholder'=>'solar:sidebar-code-bold']) !!}
                 <small class="form-text text-muted">iconify SVG Framework data-icon code</small>
             </div>
             <div class="form-group">
@@ -90,10 +90,10 @@
             </div>
             <div class="form-group">
                 {!! Form::label('service_components','Service Components:') !!}
-                {!! Form::textarea('service_components', null, ['class'=>'form-control','rows'=> 5]) !!}
+                {!! Form::textarea('service_components', null, ['class'=>'form-control','id'=>'editor','rows'=> 5]) !!}
             </div>
             <div class="form-group">
-                {!! Form::submit('Create Category', ['class'=>'btn btn-success  float-right']) !!}
+                {!! Form::submit('Create Service', ['class'=>'btn btn-success  float-right']) !!}
             </div>
             {!! Form::close() !!}
         </div>

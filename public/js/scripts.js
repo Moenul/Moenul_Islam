@@ -32,7 +32,11 @@ $(".scroll_to_top").click(function() {
      });
 
 
+// --------------
 
+setTimeout(function() {
+    $('#flash_messsage').fadeOut('fast');
+}, 3000);
 
 
 });

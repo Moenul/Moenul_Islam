@@ -62,7 +62,7 @@
             {!! Form::open(['method'=>'POST', 'action'=>'AdminSocialsController@store']) !!}
             <div class="form-group">
                 {!! Form::label('social_icon','Icon:') !!}
-                {!! Form::text('social_icon', null, ['class'=>'form-control']) !!}
+                {!! Form::text('social_icon', null, ['class'=>'form-control', 'placeholder'=>'solar:sidebar-code-bold']) !!}
                 <small class="form-text text-muted">iconify SVG Framework data-icon code</small>
             </div>
             <div class="form-group">

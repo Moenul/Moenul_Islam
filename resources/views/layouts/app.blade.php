@@ -19,6 +19,9 @@
 
 <!--  Custom Cursor -->
 
+{{-- Flash Message --}}
+@include('includes.flash-message')
+{{-- Flash Message --}}
 
 @yield('content')
 

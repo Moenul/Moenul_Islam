@@ -55,6 +55,7 @@
                 <tr>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Today Views</th>
                     <th>Total Views</th>
                     <th>Unique Views</th>
                     <th style="width:80px; text-align:center;">Edit</th>
@@ -67,6 +68,7 @@
                     <tr>
                         <td>{!! Str::limit($artical->title, 40, ' ...') !!}</td>
                         <td>{{$artical->category->name}}</td>
+                        <td>{!! views($artical)->period(CyrildeWit\EloquentViewable\Support\Period::create(\Carbon\Carbon::today()))->count(); !!}</td>
                         <td>{!! views($artical)->count() !!}</td>
                         <td>{!! views($artical)->unique()->count() !!}</td>
                         <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.articals.edit', $artical->id) }}"><i class="far fa-edit text-warning"></i></a></td>
