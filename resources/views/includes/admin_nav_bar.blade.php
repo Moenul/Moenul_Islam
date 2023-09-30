@@ -24,7 +24,7 @@
             </span></i>
 			<div class="dropdown">
 				<div class="dropdown_title">Message</div>
-				@if (App\Models\ContactMail::where('status','=',0))
+				@if (App\Models\ContactMail::where('status','=',0)->count())
                     @foreach (App\Models\ContactMail::where('status','=',0)->orderBy('id', 'desc')->limit(5)->get() as $mail)
                     <a href="{{ Route('admin.mails.show', $mail->id) }}">
                         <div class="logo_bar"><img src="{{ '/images/DummyProfile.jpg' }}"></div>

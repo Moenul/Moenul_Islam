@@ -61,9 +61,9 @@
     var array = $('.artical_tags input').val().split(", ");
 
     $.each(array, function(index, value){
-        $(".artical_tags").append("<a href=''>" + value + '</a>');
+        $(".artical_tags").append("<a href='/articals?tags=" + value + "'>" + value + "</a>");
     });
-
+    // {{ route('articals.index', ['tags'=>" + value + "]) }}
 </script>
 
 @endsection

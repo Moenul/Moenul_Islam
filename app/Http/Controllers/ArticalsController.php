@@ -14,9 +14,18 @@ class ArticalsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articals = Artical::orderBy('created_at', 'desc')->paginate(6);
+        $articals = Artical::latest()->paginate(6);
+
+
+        if($request) {
+            if($request->tags) {
+                $articals = Artical::where('tags','like','%'.$request->tags.'%')->latest()->paginate(6);
+            }else{
+                $articals = Artical::latest()->paginate(6);
+            }
+        }
 
         $quotes = Quote::inRandomOrder()->limit(3)->get();
 

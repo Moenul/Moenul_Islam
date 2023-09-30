@@ -23,7 +23,7 @@
 
             <div class="display_image_section">
                 <div class="bg_image">
-                    <img src="{{ asset('images/Website_Main_Bg_photo.png') }}">
+                    <img src="{{ asset('images/Cover_Photo.webp') }}" alt="Moenul Islam, Cover Photo">
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
             @if ($galleries)
                 @foreach ($galleries as $gallery)
                 <div class="gallary_item">
-                    <img src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images.jpg' }}">
+                    <img src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images.jpg' }}" alt="{{$gallery->desc}}">
                     <div class="gallary_item_hover">
                         <div class="item_desc">{{$gallery->desc}}</div>
                         <a href="{{$gallery->link}}"><div class="item_button">Visit Website</div></a>
@@ -86,7 +86,7 @@
                 <div class="span span_1">I Write,</div>
                 <div class="span span_2">Sometimes</div>
                 <div class="design">
-                    <img src="{{ asset('images/star.png') }}">
+                    <img src="{{ asset('images/star.png') }}" alt="Artical Idea Star">
                 </div>
             </div>
         </div>
@@ -108,18 +108,6 @@
 
         <div class="contact_bar">
             <div class="mail_section">
-                {{-- <form>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="4" placeholder="Write Here ..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter Your Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="example@mail.com">
-                    </div>
-                    <button type="submit" class="btn">Send</button>
-                </form> --}}
                 {!! Form::open(['method'=>'POST', 'action'=>'ContactMailsController@store', 'files'=>true]) !!}
                     @csrf
                     <div class="form-group">
@@ -159,4 +147,21 @@
     {{-- Footer Content Include --}}
     @include('includes.footer_content')
     {{-- Footer Content Include --}}
+@endsection
+
+@section('sctipt')
+
+<script type="text/javascript">
+
+var typed = new Typed('.auto-type', {
+	strings: ['DESIGNER', 'DEVELOPER'],
+	typeSpeed: 200,
+	backSpeed: 200,
+	backDelay: 1000,
+	cursorChar: "_",
+	loop: true
+});
+
+</script>
+
 @endsection
