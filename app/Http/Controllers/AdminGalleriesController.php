@@ -15,7 +15,7 @@ class AdminGalleriesController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::orderBy('created_at', 'desc')->get();
+        $galleries = Gallery::latest()->with('photo')->get();
         return view('admin.galleries.index', compact('galleries'));
     }
 

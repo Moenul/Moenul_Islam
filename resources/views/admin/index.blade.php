@@ -28,8 +28,8 @@
             <div class="panel_content">
                 <h5>Total Articals</h5>
                 <span>
-                @if (App\Models\Artical::count())
-                    {!! App\Models\Artical::count() !!}
+                @if ($artical_count = App\Models\Artical::count())
+                    {{$artical_count}}
                 @endif
             </span>
             </div>
@@ -40,10 +40,10 @@
         <div class="panel user_panel">
             <div class="panel_icon"><i class="fas fa-chart-line"></i></div>
             <div class="panel_content">
-                <h5>Total Visitor</h5>
+                <h5>Total Views</h5>
                 <span>
-                    @if (App\Models\Artical::count())
-                    {!! views(App\Models\Artical::class)->count(); !!}
+                @if ($total_views = views(App\Models\Artical::class)->count())
+                    {{$total_views}}
                 @endif
                 </span>
             </div>
@@ -56,8 +56,8 @@
             <div class="panel_content">
                 <h5>Total Mails</h5>
                 <span>
-                    @if (App\Models\ContactMail::count())
-                        {!! App\Models\ContactMail::count() !!}
+                    @if ($total_mails = App\Models\ContactMail::count())
+                        {{$total_mails}}
                     @endif
                 </span>
             </div>

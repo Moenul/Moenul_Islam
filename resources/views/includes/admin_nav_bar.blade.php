@@ -18,14 +18,14 @@
 
 		<li class="nav_item message"><i class="far fa-envelope">
             <span class="text-warning">
-                @if (App\Models\ContactMail::where('status','=',0)->count())
-                    {!! App\Models\ContactMail::where('status','=',0)->count() !!}
+                @if ($mail_count = App\Models\ContactMail::where('status','=',0))
+                    {{ $mail_count->count() }}
                 @endif
             </span></i>
 			<div class="dropdown">
 				<div class="dropdown_title">Message</div>
 				@if (App\Models\ContactMail::where('status','=',0)->count())
-                    @foreach (App\Models\ContactMail::where('status','=',0)->orderBy('id', 'desc')->limit(5)->get() as $mail)
+                    @foreach (App\Models\ContactMail::where('status','=',0)->latest()->take(5)->get() as $mail)
                     <a href="{{ Route('admin.mails.show', $mail->id) }}">
                         <div class="logo_bar"><img src="{{ '/images/DummyProfile.jpg' }}"></div>
                         <div class="detail_bar">

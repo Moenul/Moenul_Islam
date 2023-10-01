@@ -58,6 +58,7 @@
                     <th>Today Views</th>
                     <th>Total Views</th>
                     <th>Unique Views</th>
+                    <th>Show</th>
                     <th style="width:80px; text-align:center;">Edit</th>
                     <th style="width:80px; text-align:center;">Delete</th>
                 </tr>
@@ -71,6 +72,7 @@
                         <td>{!! views($artical)->period(CyrildeWit\EloquentViewable\Support\Period::create(\Carbon\Carbon::today()))->count(); !!}</td>
                         <td>{!! views($artical)->count() !!}</td>
                         <td>{!! views($artical)->unique()->count() !!}</td>
+                        <td><a href="{{ Route('articals.show', $artical->slug) }}" class="btn btn-sm btn-primary">Show</a></td>
                         <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.articals.edit', $artical->id) }}"><i class="far fa-edit text-warning"></i></a></td>
                         <td>
                         {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminArticalsController@destroy', $artical->id]]) !!}

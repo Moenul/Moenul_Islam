@@ -16,18 +16,19 @@ class ArticalsController extends Controller
      */
     public function index(Request $request)
     {
-        $articals = Artical::latest()->paginate(6);
+        $articals = '';
+        // $articals = Artical::latest()->get(['content','slug']);
 
 
         if($request) {
             if($request->tags) {
-                $articals = Artical::where('tags','like','%'.$request->tags.'%')->latest()->paginate(6);
+                $articals = Artical::where('tags','like','%'.$request->tags.'%')->latest()->simplePaginate(5);
             }else{
                 $articals = Artical::latest()->paginate(6);
             }
         }
 
-        $quotes = Quote::inRandomOrder()->limit(3)->get();
+        $quotes = Quote::take(1000)->get()->random(3);
 
         return view('articals.index', compact('articals','quotes'));
     }
@@ -62,8 +63,10 @@ class ArticalsController extends Controller
     public function show($request)
     {
         $artical = Artical::where('slug', $request)->first();
+
         views($artical)->cooldown($minutes = 5)->record();
-        $quotes = Quote::inRandomOrder()->limit(3)->get();
+
+        $quotes = Quote::take(1000)->get()->random(3);
 
         return view('articals.show', compact('artical','quotes'));
     }

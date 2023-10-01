@@ -20,7 +20,10 @@
                     <div class="artical">
                         <div class="date">{{ \Carbon\Carbon::parse($artical->created_at)->format('d M Y') }}</div>
                         <div class="artical_content">{!! Str::limit(strip_tags($artical->content), 200, ' ...') !!}</div>
-                        <div class="artical_views"><a href="{{ Route('articals.show', $artical->slug) }}" class="see_more">See More </a> <p> <span class="iconify" data-icon="carbon:view-filled"></span> {!! views($artical)->count() !!}</p></div>
+                        <div class="artical_views"><a href="{{ Route('articals.show', $artical->slug) }}" class="see_more">See More </a>
+                        <p> <span class="iconify" data-icon="carbon:view-filled"></span>
+                            {!! views($artical)->count() !!}
+                        </p></div>
                     </div>
                 @endforeach
                 <div class="event_paginate">

@@ -15,7 +15,7 @@ class AdminArticalsController extends Controller
      */
     public function index()
     {
-        $articals = Artical::orderBy('created_at', 'desc')->get();
+        $articals = Artical::with('category')->latest()->get();
 
         return view('admin.articals.index', compact('articals'));
     }
