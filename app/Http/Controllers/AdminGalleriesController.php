@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Gallery;
 use App\Models\Photo;
+use Image;
 
 class AdminGalleriesController extends Controller
 {
@@ -39,15 +40,28 @@ class AdminGalleriesController extends Controller
     {
         $input = $request->all();
 
-        if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
+        if ($file = $request->file('photo_id')) {
+            $imageConvert = Image::make($file)->encode('webp', 90);
+            // if ($imageConvert->width() > 380){
+            //     $imageConvert->resize(380, null, function ($constraint) {
+            //         $constraint->aspectRatio();
+            //     });
+            // }
 
-            $file->move('images', $name);
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.webp');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".webp";
 
             $photo = Photo::create(['file'=>$name]);
 
             $input['photo_id'] = $photo->id;
         }
+
+
 
         Gallery::create($input);
 
@@ -91,9 +105,23 @@ class AdminGalleriesController extends Controller
         $input = $request->all();
 
         if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            if ($gallery->photo_id !== null) {
+                unlink(public_path() . $gallery->photo->file);
+
+                $photo = $gallery->photo->id;
+                Photo::findOrFail($photo)->delete();
+            }
+
+            $imageConvert = Image::make($file)->encode('webp', 90);
+
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.webp');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".webp";
 
             $photo = Photo::create(['file'=>$name]);
 
