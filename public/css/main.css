@@ -138,7 +138,8 @@ body {
 .header_section .nav_bar .nav_list li iconify-icon{
     font-size: 35px;
     position: absolute;
-    margin-top: -18px;
+    /* margin-top: -18px; */
+    margin-top: -4px;
     transition: all .3s ease-in-out;
     display: none;
     color: black;
@@ -147,6 +148,20 @@ body {
 }
 .header_section .nav_bar .nav_list li:hover iconify-icon{
     color: var(--color-main);
+}
+
+.header_section .nav_bar .nav_list li .subscribe{
+    background: white;
+    color: var(--color-deep);
+    padding: 4px 10px;
+    margin-top: -4px;
+    border-radius: 4px;
+    outline: 1px solid #e0e0e0;
+    transition: all .3s ease-in-out;
+}
+.header_section .nav_bar .nav_list li .subscribe:hover{
+    background: var(--color-main);
+    color: var(--color-bg);
 }
 
 .header_section .nav_bar_active .nav_list li span{
@@ -159,6 +174,12 @@ body {
     width: 56px;
     overflow: hidden;
     float: right;
+}
+.header_section .nav_bar .nav_brand .desktop{
+    display: block;
+}
+.header_section .nav_bar .nav_brand .phone{
+    display: none;
 }
 
 .header_section .into_bar{
@@ -733,6 +754,9 @@ body {
     text-align: center;
     font-size: 16px;
 }
+.artical_page .artical_bar .artical .artical_views .see_more:hover{
+    background: var(--color-smart-black);
+}
 
 
 .artical_page .artical_bar .artical .artical_views p{
@@ -1055,6 +1079,16 @@ body {
     color: white;
 }
 
+.header_section .nav_bar .nav_list li .subscribe {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 10px;
+}
+.header_section .nav_bar .nav_list li .subscribe:hover{
+    background: var(--color-smart-black);
+}
+
 .header_section .nav_bar_active .nav_list li span{
     display: block;
 }
@@ -1099,6 +1133,13 @@ body {
     width: 56px;
     overflow: hidden;
     float: left;
+    padding: 6px;
+}
+.header_section .nav_bar .nav_brand .desktop{
+    display: none;
+}
+.header_section .nav_bar .nav_brand .phone{
+    display: block;
 }
 .header_section .nav_bar .nav_list_active{
     right: 0;
@@ -1147,6 +1188,10 @@ body {
 .gallary_section .gallary .gallary_item {
     width: 340px;
     height: 230px;
+}
+
+.gallary_section .gallary .gallary_item .gallary_item_hover .item_desc {
+    height: 80px;
 }
 /* /// MiniMax ///  Gallary Section End ------------------- */
 
