@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\CkUploadController;
+use App\Http\Controllers\Auth\ProviderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,11 +68,16 @@ Route::group(['middleware' => 'admin'], function(){
 
 });
 
-Route::resource('/articals', 'ArticalsController', ['names'=>[
-    'index'=>'articals.index',
-    'show'=>'articals.show',
-]]);
+// Route::resource('/articals', 'ArticalsController', ['names'=>[
+//     'index'=>'articals.index',
+//     'show'=>'articals.show',
+// ]]);
 
 Route::post('contactMail', 'ContactMailsController@store');
+
+
+Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+
+Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
 Route::get('/', 'HomeController@index');

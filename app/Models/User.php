@@ -24,6 +24,9 @@ class User extends Authenticatable
         'role_id',
         'photo_id',
         'device_token',
+        'provider',
+        'provider_id',
+        'provider_token',
     ];
 
 
@@ -42,6 +45,23 @@ class User extends Authenticatable
         return false;
     }
 
+    public function isModerator()
+    {
+        if($this->role->name  == 'Moderator'){
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isSubscriber()
+    {
+        if($this->role->name  == 'Subscriber'){
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * The attributes that should be hidden for serialization.

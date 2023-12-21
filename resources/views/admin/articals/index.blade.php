@@ -26,6 +26,9 @@
     <!-- end header -->
 
     <!-- start dashboard content -->
+    <div class="col-3 float-right">
+        <a href="{{ Route('admin.articals.create') }}" class="btn btn-success col-12">Create New Artical</a>
+    </div>
 
     <div class="form-group">
         <div class="row">
@@ -39,8 +42,8 @@
                     <option value="5000">Show ALL Rows</option>
                 </select>
             </div>
-            <div class="col-6"></div>
-            <div class="col-4">
+            <div class="col-4"></div>
+            <div class="col-6">
                 <div class="tb_search">
                     <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()" placeholder="Search Student by Keyward ..." class="form-control">
                 </div>
@@ -85,9 +88,7 @@
                 @endif
              </table>
         </div>
-        {{-- <div class="col-4">
-            <a href="{{ Route('admin.articals.create') }}" class="btn btn-success col-12">Create New Artical</a>
-        </div> --}}
+
 
 
     </div>

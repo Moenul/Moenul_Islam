@@ -884,6 +884,115 @@ body {
 /* /////  Post Section Start ------------------- */
 
 
+/* /////  LoginRegister Section Start ------------------- */
+
+.register_container{
+    width: 100%;
+    min-height: 400px;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+.register_container .register_box{
+    background: white;
+    width: 600px;
+    height: auto;
+    margin: 0px auto;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 0 0 0.2rem rgb(214 214 214 / 17%);
+}
+.register_container .register_box .box_title{
+    font-size: 30px;
+    text-align: center;
+    padding: 15px 0px;
+}
+.register_container .register_box .input_box{
+    width: 80%;
+    margin: 0px auto;
+}
+
+.register_container .register_box .input_box .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #29a78861;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(41 167 136 / 17%);
+}
+.register_container .register_box .input_box .register_button {
+    display: block;
+    margin: 0px auto;
+    border-radius: 30px;
+    padding: 5px 26px;
+    font-size: 20px;
+    font-family: monospace;
+    transition: all .3s ease-in-out;
+}
+.register_container .register_box .input_box .register_button:hover {
+    background: var(--color-smart-black);
+    color: white;
+}
+
+
+.register_container .register_box .social_login_section{
+    width: 80%;
+    min-height: 100px;
+    margin: 0px auto;
+    margin-top: 30px;
+    border-top: 1px solid;
+}
+.register_container .register_box .social_login_section .orDiv{
+    width: 160px;
+    text-align: center;
+    margin: 0px auto;
+    background: white;
+    margin-top: -15px;
+    font-size: 18px;
+    color: #7e7e7e;
+    font-family: system-ui;
+}
+.register_container .register_box .social_login_section .orDiv span{
+    font-weight: 500;
+}
+.register_container .register_box .social_login_section .social_box{
+    width: 100%;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register_container .register_box .social_login_section .social_box .social_item{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: whitesmoke;
+    margin: 5px;
+    overflow: hidden;
+}
+.register_container .register_box .social_login_section .social_box .social_item a{
+    text-decoration: none;
+    color: black;
+}
+.register_container .register_box .social_login_section .social_box .social_item iconify-icon{
+    font-size: 45px;
+}
+
+
+
+
+.register_container .register_box .social_login_section .alredyRegistered{
+    font-size: 16px;
+    font-family: system-ui;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 20px;
+    line-height: 1.8;
+}
+.register_container .register_box .social_login_section .alredyRegistered a{
+    color: var(--color-smart-black);
+}
+
+/* /////  LoginRegister Section End ------------------- */
 
 /*----------------*/
 /*Responsive Start*/
@@ -1243,6 +1352,26 @@ body {
     margin-top: 70px;
     margin-bottom: 50px;
 }
+
+
+/* /// MiniMax ///  RegisterLogin Section Start ------------------- */
+
+.register_container {
+    margin-top: 100px;
+    padding: 5px;
+}
+.register_container .register_box{
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.register_container .register_box .input_box {
+    width: 90%;
+}
+
+/* /// MiniMax ///  RegisterLogin Section End ------------------- */
+
 
 }
 /*MiniMax End*/

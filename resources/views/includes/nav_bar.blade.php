@@ -10,7 +10,19 @@
             <a href="{{ url('/articals') }}"><li><iconify-icon icon="circum:pen" rotate="270deg"></iconify-icon> <span>Articals</span></li></a>
             <a href="{{ url('pdfs/Moenul_Islam_Resume.pdf') }}"><li><iconify-icon icon="solar:notes-broken"></iconify-icon> <span>Resume</span></li></a>
             <a href="{{ url('/#contact') }}"><li><iconify-icon icon="solar:call-chat-outline"></iconify-icon> <span>Say hello?</span></li></a>
-            <a href="{{ url('/login') }}"><li> <div class="subscribe">Subscribe</div></li></a>
+
+            @if (Auth::check())
+                @if (Auth::user()->isAdmin())
+                    <a href="{{ url('/admin') }}"><li> <div class="subscribe">Admin</div></li></a>
+                @elseif (Auth::user()->isModerator())
+                    <a href="{{ url('/admin') }}"><li> <div class="subscribe">Admin</div></li></a>
+                @elseif (Auth::user()->isSubscriber())
+                    <a href="{{ url('/logout') }}"><li> <div class="subscribe">Logout</div></li></a>
+                @endif
+            @else
+                <a href="{{ url('/login') }}"><li> <div class="subscribe">Subscribe</div></li></a>
+            @endif
+
         </ul>
     </div>
     <div class="nav_brand"><a href="{{ url('/') }}">
