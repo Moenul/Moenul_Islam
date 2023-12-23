@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'title',
         'email',
         'password',
         'role_id',
@@ -61,6 +62,11 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    public function article()
+    {
+        return $this->belongsTo('App\Models\Article');
     }
 
     /**

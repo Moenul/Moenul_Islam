@@ -455,16 +455,16 @@ body {
 /* /////  Gallary Section Start ------------------- */
 
 
-/* /////  Artical Section Start ------------------- */
-.artical_section{
+/* /////  Article Section Start ------------------- */
+.article_section{
     padding:10px 0px 60px 0px;
 }
-.artical_section .style_bar{
+.article_section .style_bar{
     width: 50%;
     height: auto;
     display: inline-block;
 }
-.artical_section .style_bar .style_box{
+.article_section .style_bar .style_box{
     width: 100%;
     height: 400px;
     background: var(--color-main);
@@ -473,7 +473,7 @@ body {
     text-align: center;
     position: relative;
 }
-.artical_section .style_bar .style_box .span{
+.article_section .style_bar .style_box .span{
     width: 100%;
     font-family: 'BakbakOne', sans-serif;
     color: #f3ececdb;
@@ -487,42 +487,42 @@ body {
     text-shadow: -4px 4px 5px #0000005e;
 }
 
-.artical_section .style_bar .style_box .span_1{
+.article_section .style_bar .style_box .span_1{
     font-size: 120px;
     top: 155px;
 }
 
-.artical_section .style_bar .style_box .span_2{
+.article_section .style_bar .style_box .span_2{
     font-size: 77px;
     top: 245px;
 }
-.artical_section .style_bar .style_box .design{
+.article_section .style_bar .style_box .design{
     width: 300px;
     position: absolute;
     transform: rotate(12deg);
     left: -95px;
     top: 40px;
 }
-.artical_section .style_bar .style_box .design img{
+.article_section .style_bar .style_box .design img{
     width: 100%;
 }
 
-.artical_section .button_bar{
+.article_section .button_bar{
     width: 50%;
     height: auto;
     float: right;
 }
-.artical_section .button_bar .button_title{
+.article_section .button_bar .button_title{
     margin-top: 50px;
     padding: 25px 50px;
     font-size: 22px;
     text-align: center;
     color: var(--color-smart-black);
 }
-.artical_section .button_bar a{
+.article_section .button_bar a{
     text-decoration: none;
 }
-.artical_section .button_bar .button{
+.article_section .button_bar .button{
     width: 270px;
     margin: 0px auto;
     font-size: 18px;
@@ -534,7 +534,7 @@ body {
     position: relative;
     transition: all .5s ease-in-out;
 }
-.artical_section .button_bar .button svg{
+.article_section .button_bar .button svg{
     font-size: 30px;
     position: absolute;
     right: 35px;
@@ -542,13 +542,13 @@ body {
     transition: all .3s ease-in-out;
 }
 
-.artical_section .button_bar .button:hover{
+.article_section .button_bar .button:hover{
     background: var(--color-smart-black);
 }
-.artical_section .button_bar .button:hover svg{
+.article_section .button_bar .button:hover svg{
     right: 25px;
 }
-/* /////  Artical Section End ------------------- */
+/* /////  Article Section End ------------------- */
 
 
 /* /////  Contact Section Start ------------------- */
@@ -712,28 +712,33 @@ body {
 /* /////  Alert Box End ------------------- */
 
 
-/* /////  Artical Page Start ------------------- */
-.artical_page {
+/* /////  Article Page Start ------------------- */
+.article_page {
     margin-top: 100px;
     padding: 40px 0px;
-    min-height: 100vh;
+    min-height: 125vh;
 }
-.artical_page .artical_bar{
+.article_page .article_bar{
     width: 65%;
     display: inline-block;
 }
-.artical_page .artical_bar .artical{
+.article_page .article_bar .article{
     padding: 0px 0px 0px 8px;
     border-left: 2px solid var(--color-main);
     margin: 25px 0px;
 }
-.artical_page .artical_bar .artical .date{
+.article_page .article_bar .article .date{
     font-size: 18px;
     letter-spacing: 2px;
     color: #818181;
 }
-.artical_page .artical_bar .artical .artical_content{
-    padding: 12px 0px 6px 0px;
+.article_page .article_bar .article .article_title{
+    padding: 12px 0px 0px 0px;
+    font-size: 20px;
+    font-family: 'LiNiladriRongtuliUnicode', sans-serif;
+}
+.article_page .article_bar .article .article_content{
+    padding: 5px 0px;
     font-size: 18px;
     line-height: 1.5;
     font-family: inherit;
@@ -742,7 +747,7 @@ body {
 }
 
 
-.artical_page .artical_bar .artical .artical_views .see_more{
+.article_page .article_bar .article .article_views .see_more{
     text-decoration: none;
     display: inline-block;
     width: 110px;
@@ -754,12 +759,12 @@ body {
     text-align: center;
     font-size: 16px;
 }
-.artical_page .artical_bar .artical .artical_views .see_more:hover{
+.article_page .article_bar .article .article_views .see_more:hover{
     background: var(--color-smart-black);
 }
 
 
-.artical_page .artical_bar .artical .artical_views p{
+.article_page .article_bar .article .article_views p{
     width: 100px;
     float: right;
     padding: 5px 15px;
@@ -774,7 +779,7 @@ body {
     margin-top: 6px;
 }
 
-.artical_page .artical_bar .artical .artical_views p .iconify{
+.article_page .article_bar .article .article_views p .iconify{
     position: absolute;
     left: 12px;
     font-size: 20px;
@@ -783,13 +788,13 @@ body {
 
 
 
-.artical_page .quote_bar{
+.article_page .quote_bar{
     width: 30%;
     float: right;
     display: grid;
     justify-content: space-around;
 }
-.artical_page .quote_bar .quote{
+.article_page .quote_bar .quote{
     width: 270px;
     height: 200px;
     border-radius: 10px;
@@ -802,83 +807,203 @@ body {
     box-shadow: -3px 5px 12px -3px #8aa9a7;
     font-family: 'LiNiladriRongtuliUnicode', sans-serif;
 }
-.artical_page .quote_bar .quote p{
+.article_page .quote_bar .quote p{
     font-size: 16px !important;
 }
 
-.artical_page .quote_bar .quote:nth-child(1){
+.article_page .quote_bar .quote:nth-child(1){
     background-color: #f5deb3;
     opacity: 1;
     background-image:  linear-gradient(#c8c8c8 1.2000000000000002px, transparent 1.2000000000000002px), linear-gradient(to right, #c8c8c8 1.2000000000000002px, #f5deb3 1.2000000000000002px);
     background-size: 24px 24px;
 }
-.artical_page .quote_bar .quote:nth-child(2){
+.article_page .quote_bar .quote:nth-child(2){
     background-color: #f5deb3;
     opacity: 1;
     background-size: 12px 12px;
     background-image: repeating-linear-gradient(45deg, #aed2b1 0, #aed2b1 1.2000000000000002px, #f5deb3 0, #f5deb3 50%);
 }
-.artical_page .quote_bar .quote:nth-child(3){
+.article_page .quote_bar .quote:nth-child(3){
     background-color: #f5deb3;
     opacity: 0.8;
     background-size: 20px 20px;
     background-image:  repeating-linear-gradient(to right, #afafaf, #afafaf 1px, #f5deb3 1px, #f5deb3);
 }
-.artical_page .quote_bar .quote p{
+.article_page .quote_bar .quote p{
     font-size: 18px;
     padding: 20px;
 }
-/* /////  Artical Page End ------------------- */
+/* /////  Article Page End ------------------- */
 
 
 /* /////  Post Section Start ------------------- */
 
-.artical_section{
+.article_page .article_section{
+    width: 800px;
+    margin: 0px auto;
     min-height: 100vh;
     font-family: 'LiNiladriRongtuliUnicode', sans-serif;
+    position: relative;
 }
-.artical_section .date{
-    width: calc(100% - 120px);
+.article_page .article_section .article_title{
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--color-smart-black);
+    text-align: center;
+    margin-bottom: 10px;
+}
+.article_page .article_section .date,
+.article_page .article_section .views,
+.article_page .article_section .read_time
+{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+}
+.article_page .article_section .date iconify-icon,
+.article_page .article_section .views iconify-icon,
+.article_page .article_section .read_time iconify-icon
+{
+    font-size: 18px;
+    padding: 1px 6px;
+}
+.article_page .article_section .article_tags{
+    width: 100%;
+    height: 30px;
+    margin: 5px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.article_page .article_section .article_tags a{
+    text-decoration: none;
+    padding: 0px 12px 0px 0px;
+    background: #f3ecec;
+    margin: 5px;
+    color: black;
+    display: inline-flex;
+    line-height: 1.1;
+    transition: all .3s ease-in-out;
+}
+.article_page .article_section .article_tags a iconify-icon{
+    font-size: 18px;
+    padding: 0px 4px;
+    color: #4c4c4c;
+    transition: all .3s ease-in-out;
+}
+
+.article_page .article_section .article_tags a:hover{
+    color: var(--color-main);
+}
+.article_page .article_section .article_tags a:hover iconify-icon{
+    color: var(--color-main);
+}
+
+
+.article_page .article_section .article_author{
+    width: fit-content;
+    margin: 0px auto;
+}
+.article_page .article_section .article_author .author_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 5px;
+    background: #009688;
     display: inline-block;
-    padding-left: 15px;
+    outline: 2px solid var(--color-main);
 }
-.artical_section .views{
-    width: 120px;
+.article_page .article_section .article_author .author_img img{
+    width: 100%;
+}
+.article_page .article_section .article_author .author_desc{
+    width:calc(100% - 60px);
     float: right;
+    padding: 5px;
 }
-.artical_section .artical_desc{
+.article_page .article_section .article_author .author_desc .author_name{
+    padding: 2px 0px;
+}
+.article_page .article_section .article_author .author_desc .author_title{
+    color: #5a5a5a;
+    font-size: 14px;
+}
+
+
+.article_page .article_section .article_desc{
     width: 100%;
     height: auto;
     font-size: 18px;
+    font-family: sans-serif;
+    margin-bottom: 30px;
 }
-.artical_section .artical_desc .image {
+.article_page .article_section .article_desc .image {
     width: 90%;
     margin: 0 auto;
     padding: 10px;
 }
-.artical_section .artical_desc img{
+.article_page .article_section .article_desc img{
     width: 100%;
 }
-.artical_section .artical_tags{
-    padding: 10px 10px 20px 10px;
-    background: #f7f7f7;
-    border-radius: 4px;
-}
-.artical_section .artical_tags .tags_title{
+.article_page .article_section .share_section {
+    width: fit-content;
+    margin: 0px auto;
+    background: whitesmoke;
     padding: 0px 20px;
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: #464646;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px -4px;
+    position: relative;
+    margin-top: 50px;
 }
-.artical_section .artical_tags a{
-    text-decoration: none;
-    padding: 6px 20px;
-    background: #f3ecec;
-    margin: 5px;
+.article_page .article_section .share_section li{
+    font-size: 24px;
+    padding: 6px 6px;
+    margin: 2px;
+    display: inline-block;
+    color: var(--color-deep);
+    transition: all .3s ease-in-out;
+    line-height: 0;
+}
+.article_page .article_section .share_section li:hover{
+    color: var(--color-transparent);
+}
+.article_page .article_section .share_section #copyInput{
+    position: absolute;
+    width: 100%;
+    top: -32px;
+    left: 0;
+    border: 2px solid var(--color-transparent);
+    border-radius: 5px;
+}
+.article_page .article_section .share_section #copyInputBtn{
+    position: relative;
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.article_page .article_section .share_section li .tooltiptext{
+    width: 85px;
+    height: 20px;
     border-radius: 3px;
-    border: 1px solid #e0e0e0;
-    color: black;
-    box-shadow: 1px 1px 4px #d0d0d0;
+    background: #29a788;
+    color: white;
+    top: -18px;
+    left: -25px;
+    font-size: 12px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 4px -4px;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+}
+.article_page .article_section .share_section li .tooltiptextActive{
+    visibility: visible;
 }
 
 /* /////  Post Section Start ------------------- */
@@ -1031,23 +1156,23 @@ body {
 }
 /* /// iPad Pro ///  Gallery Section End ------------------- */
 
-/* /// iPad Pro ///  Artical Section Start ------------------- */
-.artical_section .style_bar {
+/* /// iPad Pro ///  Article Section Start ------------------- */
+.article_section .style_bar {
     width: 540px;
     margin: 0px auto;
     display: block;
 }
-.artical_section .button_bar {
+.article_section .button_bar {
     width: 100%;
     float: none;
 }
-.artical_section .button_bar .button_title {
+.article_section .button_bar .button_title {
     margin-top: 0px;
 }
-.artical_section .button_bar .button {
+.article_section .button_bar .button {
     margin-top: 0px;
 }
-/* /// iPad Pro ///  Artical Section End ------------------- */
+/* /// iPad Pro ///  Article Section End ------------------- */
 
 }
 /*iPad Pro End*/
@@ -1100,12 +1225,12 @@ body {
 }
 /* /// iPad Air ///  Contact Section End ------------------- */
 
-/* /// iPad Air ///  Artical Section Start ------------------- */
-.artical_page .artical_bar {
+/* /// iPad Air ///  Article Section Start ------------------- */
+.article_page .article_bar {
     width: 100%;
     display: block;
 }
-.artical_page .quote_bar {
+.article_page .quote_bar {
     width: 100%;
     margin-top: 70px;
     float: none;
@@ -1114,8 +1239,11 @@ body {
     justify-content: space-around;
     grid-gap: 25px 25px;
 }
-/* /// iPad Air ///  Artical Section End ------------------- */
 
+.article_page .article_section{
+    width: 100%;
+}
+/* /// iPad Air ///  Article Section End ------------------- */
 
 }
 /*iPad Air End*/
@@ -1304,25 +1432,25 @@ body {
 }
 /* /// MiniMax ///  Gallary Section End ------------------- */
 
-/* /// MiniMax ///  Artical Section Start ------------------- */
-.artical_section .style_bar {
+/* /// MiniMax ///  Article Section Start ------------------- */
+.article_section .style_bar {
     width: 100%;
 }
-.artical_section .style_bar .style_box {
+.article_section .style_bar .style_box {
     height: 370px;
     border-radius: 30px 200px 110px 50px;
 }
-.artical_section .style_bar .style_box .span_1 {
+.article_section .style_bar .style_box .span_1 {
     top: 145px;
 }
-.artical_section .style_bar .style_box .span_2 {
+.article_section .style_bar .style_box .span_2 {
     top: 230px;
 }
-.artical_section .style_bar .style_box .design {
+.article_section .style_bar .style_box .design {
     width: 285px;
     top: 35px;
 }
-/* /// MiniMax ///  Artical Section End ------------------- */
+/* /// MiniMax ///  Article Section End ------------------- */
 
 
 .contact_section .contact_bar .mail_section {
@@ -1348,7 +1476,7 @@ body {
     top: -40px;
     left: 40px;
 }
-.artical_page {
+.article_page {
     margin-top: 70px;
     margin-bottom: 50px;
 }
@@ -1372,6 +1500,20 @@ body {
 
 /* /// MiniMax ///  RegisterLogin Section End ------------------- */
 
+/* /// MiniMax ///  Atrical Post Section Start ------------------- */
+.article_page .article_section{
+    width: 100%;
+}
+.article_page .article_section .article_title{
+    font-size: 30px;
+}
+.article_page .article_section .article_tags {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* /// MiniMax ///  Atrical Post Section End ------------------- */
 
 }
 /*MiniMax End*/
@@ -1412,22 +1554,22 @@ body {
 }
 /* /// iPhone S ///  Service Section End ------------------- */
 
-.artical_section .style_bar .style_box {
+.article_section .style_bar .style_box {
     height: 350px;
     border-radius: 30px 210px 100px 60px;
 }
-.artical_section .style_bar .style_box .span_1 {
+.article_section .style_bar .style_box .span_1 {
     font-size: 90px;
     top: 155px;
 }
-.artical_section .style_bar .style_box .span_2 {
+.article_section .style_bar .style_box .span_2 {
     font-size: 57px;
     top: 220px;
 }
-.artical_section .style_bar .style_box .design {
+.article_section .style_bar .style_box .design {
     width: 270px;
 }
-.artical_section .button_bar .button_title {
+.article_section .button_bar .button_title {
     padding: 40px 30px;
 }
 .contact_section .contact_bar .social_section .social_bar {

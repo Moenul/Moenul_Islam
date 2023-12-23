@@ -19,7 +19,7 @@
 <div class="content_section">
     <!-- start header -->
     <div class="header">
-        <h3>Articals</h3>&nbsp;&nbsp;<span>View Articals</span>
+        <h3>Articles</h3>&nbsp;&nbsp;<span>View Articles</span>
         <a href="{{ url('/') }}"><i class="fas fa-home"></i>Home</a>
         <hr>
     </div>
@@ -27,7 +27,7 @@
 
     <!-- start dashboard content -->
     <div class="col-3 float-right">
-        <a href="{{ Route('admin.articals.create') }}" class="btn btn-success col-12">Create New Artical</a>
+        <a href="{{ Route('admin.mgArticles.create') }}" class="btn btn-success col-12">Create New Article</a>
     </div>
 
     <div class="form-group">
@@ -57,6 +57,7 @@
                 <thead>
                 <tr>
                     <th>Title</th>
+                    <th>Author</th>
                     <th>Category</th>
                     <th>Today Views</th>
                     <th>Total Views</th>
@@ -66,19 +67,20 @@
                     <th style="width:80px; text-align:center;">Delete</th>
                 </tr>
                 </thead>
-                @if ($articals)
+                @if ($articles)
                 <tbody>
-                    @foreach ($articals as $artical)
+                    @foreach ($articles as $article)
                     <tr>
-                        <td>{!! Str::limit($artical->title, 40, ' ...') !!}</td>
-                        <td>{{$artical->category->name}}</td>
-                        <td>{!! views($artical)->period(CyrildeWit\EloquentViewable\Support\Period::create(\Carbon\Carbon::today()))->count(); !!}</td>
-                        <td>{!! views($artical)->count() !!}</td>
-                        <td>{!! views($artical)->unique()->count() !!}</td>
-                        <td><a href="{{ Route('articals.show', $artical->slug) }}" class="btn btn-sm btn-primary">Show</a></td>
-                        <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.articals.edit', $artical->id) }}"><i class="far fa-edit text-warning"></i></a></td>
+                        <td>{!! Str::limit($article->title, 40, ' ...') !!}</td>
+                        <td>{{$article->user->name}}</td>
+                        <td>{{$article->category->name}}</td>
+                        <td>{!! views($article)->period(CyrildeWit\EloquentViewable\Support\Period::create(\Carbon\Carbon::today()))->count(); !!}</td>
+                        <td>{!! views($article)->count() !!}</td>
+                        <td>{!! views($article)->unique()->count() !!}</td>
+                        <td><a href="{{ Route('articles.show', $article->slug) }}" class="btn btn-sm btn-primary">Show</a></td>
+                        <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.mgArticles.edit', $article->id) }}"><i class="far fa-edit text-warning"></i></a></td>
                         <td>
-                        {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminArticalsController@destroy', $artical->id]]) !!}
+                        {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminMgArticlesController@destroy', $article->id]]) !!}
                             {{ Form::button('<i class="fas fa-trash-alt text-danger"></i>', ['type' => 'submit', 'class' => 'btn'] )  }}
                         {!! Form::close() !!}
                         </td>

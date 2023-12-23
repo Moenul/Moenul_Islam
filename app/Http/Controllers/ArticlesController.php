@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Artical;
+use App\Models\Article;
 use App\Models\Quote;
 use App\Models\Photo;
 
-class ArticalsController extends Controller
+class ArticlesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,21 +16,23 @@ class ArticalsController extends Controller
      */
     public function index(Request $request)
     {
-        $articals = '';
-        // $articals = Artical::latest()->get(['content','slug']);
-
+        $articles = '';
 
         if($request) {
             if($request->tags) {
-                $articals = Artical::where('tags','like','%'.$request->tags.'%')->latest()->simplePaginate(5);
+                $articles = Article::where('tags','like','%'.$request->tags.'%')->latest()->simplePaginate(5);
             }else{
-                $articals = Artical::latest()->paginate(6);
+                $articles = Article::latest()->paginate(6);
             }
         }
 
-        $quotes = Quote::take(1000)->get()->random(3);
+        if(Quote::count() > 3){
+            $quotes = Quote::take(1000)->get()->random(3);
+        }else{
+            $quotes = Quote::latest()->get();
+        }
 
-        return view('articals.index', compact('articals','quotes'));
+        return view('articles.index', compact('articles','quotes'));
     }
 
     /**
@@ -62,13 +64,11 @@ class ArticalsController extends Controller
      */
     public function show($request)
     {
-        $artical = Artical::where('slug', $request)->first();
+        $article = Article::where('slug', $request)->first();
 
-        views($artical)->cooldown($minutes = 5)->record();
+        views($article)->cooldown($minutes = 5)->record();
 
-        $quotes = Quote::take(1000)->get()->random(3);
-
-        return view('articals.show', compact('artical','quotes'));
+        return view('articles.show', compact('article'));
     }
 
     /**

@@ -22,14 +22,14 @@
 
     <!-- start dashboard content -->
 
-        <a href="{{ route('admin.articals.index') }}">
+        <a href="{{ route('admin.mgArticles.index') }}">
         <div class="panel post_panel">
             <div class="panel_icon"><i class="fas fa-file-alt"></i></div>
             <div class="panel_content">
-                <h5>Total Articals</h5>
+                <h5>Total Articles</h5>
                 <span>
-                @if ($artical_count = App\Models\Artical::count())
-                    {{$artical_count}}
+                @if ($article_count = App\Models\Article::count())
+                    {{$article_count}}
                 @endif
             </span>
             </div>
@@ -42,7 +42,7 @@
             <div class="panel_content">
                 <h5>Total Views</h5>
                 <span>
-                @if ($total_views = views(App\Models\Artical::class)->count())
+                @if ($total_views = views(App\Models\Article::class)->count())
                     {{$total_views}}
                 @endif
                 </span>

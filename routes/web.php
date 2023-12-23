@@ -43,10 +43,10 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.socials.edit'
     ]]);
 
-    Route::resource('/admin/articals', 'AdminArticalsController', ['names'=>[
-        'index'=>'admin.articals.index',
-        'create'=>'admin.articals.create',
-        'edit'=>'admin.articals.edit'
+    Route::resource('/admin/mgArticles', 'AdminMgArticlesController', ['names'=>[
+        'index'=>'admin.mgArticles.index',
+        'create'=>'admin.mgArticles.create',
+        'edit'=>'admin.mgArticles.edit'
     ]]);
 
     Route::resource('/admin/quotes', 'AdminQuotesController', ['names'=>[
@@ -68,10 +68,10 @@ Route::group(['middleware' => 'admin'], function(){
 
 });
 
-// Route::resource('/articals', 'ArticalsController', ['names'=>[
-//     'index'=>'articals.index',
-//     'show'=>'articals.show',
-// ]]);
+Route::resource('/articles', 'ArticlesController', ['names'=>[
+    'index'=>'articles.index',
+    'show'=>'articles.show',
+]]);
 
 Route::post('contactMail', 'ContactMailsController@store');
 

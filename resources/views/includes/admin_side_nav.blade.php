@@ -2,10 +2,10 @@
 
     <a href="/admin"><li class="side_nav_item"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></li></a>
 
-    <li class="side_nav_item"><i class="far fa-clipboard"></i><span>Articals</span>
+    <li class="side_nav_item"><i class="far fa-clipboard"></i><span>Articles</span>
         <div class="side_dropdown">
-            <a href="{{ route('admin.articals.index') }}">View Articals</a>
-            <a href="{{ route('admin.articals.create') }}">Create Artical</a>
+            <a href="{{ route('admin.mgArticles.index') }}">View Articles</a>
+            <a href="{{ route('admin.mgArticles.create') }}">Create Article</a>
         </div>
     </li>
 

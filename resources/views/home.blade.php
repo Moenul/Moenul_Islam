@@ -79,14 +79,14 @@
 
 
 
-<div class="artical_section">
+<div class="article_section">
     <div class="container">
         <div class="style_bar">
             <div class="style_box">
                 <div class="span span_1">I Write,</div>
                 <div class="span span_2">Sometimes</div>
                 <div class="design">
-                    <img src="{{ asset('images/star.png') }}" alt="Artical Idea Star">
+                    <img src="{{ asset('images/star.png') }}" alt="article Idea Star">
                 </div>
             </div>
         </div>
@@ -94,7 +94,7 @@
             <div class="button_title"><p>
                 I write about my feelings, thought, social issues, design, frontend dev, learning and life.
             </p></div>
-            <a href="{{ url('/articals') }}"><div class="button">Read my Articles <span class="iconify" data-icon="cil:arrow-right"></span></div></a>
+            <a href="{{ url('/articles') }}"><div class="button">Read my Articles <span class="iconify" data-icon="cil:arrow-right"></span></div></a>
         </div>
     </div>
 </div>

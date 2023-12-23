@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Artical extends Model implements Viewable
+class Article extends Model implements Viewable
 {
     use HasFactory;
     use InteractsWithViews;
@@ -25,15 +25,23 @@ class Artical extends Model implements Viewable
     protected $fillable = [
         'title',
         'content',
+        'content_bn',
         'tags',
         'cat_id',
         'type',
         'views',
+        'read_time',
+        'user_id',
     ];
 
     public function category()
     {
         return $this->belongsTo('App\Models\Category','cat_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 
 }

@@ -53,6 +53,15 @@
         }).catch( error => {
 			console.error( error );
 		} );
+
+    ClassicEditor
+		.create( document.querySelector( '#editor2' ) ,{
+            ckfinder: {
+                uploadUrl: "{{route('ckeditor.upload').'?_token='.csrf_token()}}",
+            }
+        }).catch( error => {
+			console.error( error );
+		} );
 </script>
 
 @yield('script')
