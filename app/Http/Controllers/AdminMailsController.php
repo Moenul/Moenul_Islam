@@ -52,11 +52,13 @@ class AdminMailsController extends Controller
         $data = array( 'name'=> $name, 'email' => $contact_email, 'subject' => $contact_subject, 'messages' => $contact_message, 'desc' => $mail_desc, 'attachment' => $attachment );
         Mail::send('admin/mail', $data, function($message) use ($data){
             $message->to($data['email'], $data['name'])->subject('Reply of - '. $data['subject']);
-            foreach($data['attachment'] as $file){
-                $message->attach($file->getRealPath(), [
-                    'as' => $file->getClientOriginalName(),
-                    'mime' => $file->getMimeType()
-                ]);
+            if($data['attachment'] !== Null){
+                foreach($data['attachment'] as $file){
+                    $message->attach($file->getRealPath(), [
+                        'as' => $file->getClientOriginalName(),
+                        'mime' => $file->getMimeType()
+                    ]);
+                }
             }
             $message->from('bhuiyansab5@gmail.com' ,'Bijoy Bhuiyan');
         });

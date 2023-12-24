@@ -128,9 +128,11 @@
                 <div class="social_bar">
                     @if ($socials)
                         @foreach ($socials as $social)
-                        <a href="{{$social->social_link}}"><div class="social_iteml" style="color:{{$social->icon_color}};">
-                            <span class="iconify" data-icon="{{$social->social_icon}}"></span>
-                        </div></a>
+                        <a href="{{$social->social_link}}">
+                            <div class="social_iteml" style="color:{{$social->icon_color}};">
+                                <iconify-icon icon="{{$social->social_icon}}"></iconify-icon>
+                            </div>
+                        </a>
                         @endforeach
                     @endif
                 </div>

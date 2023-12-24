@@ -607,20 +607,18 @@ body {
     float: right;
 }
 .contact_section .contact_bar .social_section .social_bar{
-    padding: 50px 50px;
+    padding: 70px 50px;
     grid-gap: 25px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 }
 .contact_section .contact_bar .social_section .social_bar .social_iteml{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    overflow: hidden;
-    font-size: 70px;
+    font-size: 60px;
     text-align: center;
-    background: white;
     line-height: 0;
 }
 /* /////  Contact Section End ------------------- */
