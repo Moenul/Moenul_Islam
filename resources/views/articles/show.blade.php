@@ -2,6 +2,11 @@
 
 @section('content')
 
+{{-- Loadin Animation --}}
+<div class="skelecton_bg" id="skelecton_bg">
+    <div class="nav_bar skeleton"></div>
+</div>
+{{-- Loadin Animation --}}
 
 <div class="header_section">
     <div class="container">
@@ -17,18 +22,18 @@
         {{-- <div class="article_bar"> --}}
             <div class="article_section">
                 @if ($article)
-                <div class="article_title">{{$article->title}}</div>
-                <div class="row">
+                <div class="article_title skeleton">{{$article->title}}</div>
+                <div class="row skeleton">
                     <div class="col-md-4 date"><iconify-icon icon="solar:calendar-date-linear"></iconify-icon> {{ \Carbon\Carbon::parse($article->created_at)->format('d M Y') }}</div>
                     <div class="col-md-4 views"><iconify-icon icon="subway:eye"></iconify-icon> {!! views($article)->count() !!} Views</div>
                     <div class="col-md-4 read_time"><iconify-icon icon="bi:clock"></iconify-icon> {{$article->read_time}}</div>
                 </div>
-                <div class="article_tags">
+                <div class="article_tags skeleton">
                     <input type="hidden" name="" value="{{ $article->tags }}">
                 </div>
-                <div class="article_author">
-                    <div class="author_img"><img src="{{ $article->user->photo ? $article->user->photo->file : '/images/DummyProfile.jpg' }}" alt=""></div>
-                    <div class="author_desc">
+                <div class="article_author ">
+                    <div class="author_img skeleton"><img src="{{ $article->user->photo ? $article->user->photo->file : '/images/DummyProfile.jpg' }}" alt=""></div>
+                    <div class="author_desc skeleton">
                         <div class="author_name">{{$article->user->name}}</div>
                         <div class="author_title">
                             @if ($article->user->title == Null)
@@ -40,12 +45,12 @@
                     </div>
                 </div>
 
-                <div class="article_desc mt-3">
+                <div class="article_desc mt-3 skeleton">
                     {!! $article->content !!}
                 </div>
 
 
-                <div class="share_section">
+                <div class="share_section skeleton">
                     <ul>
                         <input value="{{url()->current()}}" id="copyInput" type="hidden">
                         <button id="copyInputBtn">
@@ -123,6 +128,16 @@
         }, 500);
     });
 //  Copy to clip box script
+
+
+const allSkeleton = document.querySelectorAll('.skeleton')
+
+window.addEventListener('load', function() {
+  allSkeleton.forEach(item=> {
+    item.classList.remove('skeleton')
+    document.getElementById("skelecton_bg").style.display = 'none';
+  })
+})
 
 </script>
 

@@ -60,7 +60,7 @@ pointer-events: none;
 left: 0;
 top: 0;
 transform: translate(calc(-50% + 15px), -50%);
-z-index: 9999;
+z-index: 999999;
 }
 
 .cursor2 {
@@ -73,7 +73,7 @@ position: fixed;
 transform: translate(-50%, -50%);
 pointer-events: none;
 transition: width .3s, height .3s, opacity .3s;
-z-index: 9999;
+z-index: 999999;
 }
 
 .hover {
@@ -96,6 +96,51 @@ body {
     min-width: 100%;
 }
 } */
+
+
+
+/* Loading Animation */
+.skelecton_bg{
+    width: 100%;
+    height: 100vh;
+    background: gainsboro;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.skelecton_bg .nav_bar{
+    width: 90%;
+    height: 60px;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 15px;
+}
+.skelecton_bg .content_bar{
+    width: 90%;
+    height: calc(100vh - 90px);
+    margin: 0 auto;
+    margin-top: 30px;
+    background: white;
+    border-radius: 15px;
+}
+.skelecton_bg .content_bar .content_item1{
+    width: 50%;
+    height: 80%;
+    margin: 30px;
+    border-radius: 15px;
+    display: inline-block;
+}
+.skelecton_bg .content_bar .content_item2{
+    width: calc(50% - 120px);
+    height: 80%;
+    margin: 30px;
+    border-radius: 15px;
+    float: right;
+}
+
+/* Loading Animation */
+
 
 
 /* /////  Header Section Start ------------------- */
@@ -675,7 +720,7 @@ body {
     border: 1px solid var(--color-main);
     position: fixed;
     right: 28px;
-    bottom: 60px;
+    bottom: 90px;
     font-size: 30px;
     color: var(--color-main);
     opacity: 80%;
@@ -1513,6 +1558,29 @@ body {
 }
 /* /// MiniMax ///  Atrical Post Section End ------------------- */
 
+/* Loading Animation */
+.skelecton_bg .content_bar .content_item1{
+    width: calc(100% - 60px);
+    margin: 0 auto;
+    height: 40%;
+    margin: 30px;
+    border-radius: 15px;
+    display: inline-block;
+}
+.skelecton_bg .content_bar .content_item2{
+    width: calc(100% - 60px);
+    margin: 0 auto;
+    height: 35%;
+    margin: 30px;
+    margin-top: 0px;
+    border-radius: 15px;
+    display: inline-block;
+    float: none;
+}
+
+/* Loading Animation */
+
+
 }
 /*MiniMax End*/
 
@@ -1650,3 +1718,34 @@ body {
 
 /*----------------*/
 /*Responsive End*/
+
+
+/* Skelecton Animation */
+.skeleton {
+    position: relative;
+}
+.skeleton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #eee, #f9f9f9, #ffffff, #eee);
+    background-size: 200%;
+    animation: skeleton 1s infinite reverse;
+}
+@keyframes skeleton {
+    0% {
+        background-position: -100% 0;
+    }
+    70% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+/* Skelecton Animation */

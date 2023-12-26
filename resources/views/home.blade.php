@@ -2,6 +2,16 @@
 
 @section('content')
 
+{{-- Loadin Animation --}}
+<div class="skelecton_bg" id="skelecton_bg">
+    <div class="nav_bar skeleton"></div>
+    <div class="content_bar">
+        <div class="content_item1 skeleton"></div>
+        <div class="content_item2 skeleton"></div>
+    </div>
+</div>
+
+{{-- Loadin Animation --}}
 
 <div class="header_section">
     <div class="container">
@@ -163,6 +173,17 @@ var typed = new Typed('.auto-type', {
 	cursorChar: "_",
 	loop: true
 });
+
+
+const allSkeleton = document.querySelectorAll('.skeleton')
+
+window.addEventListener('load', function() {
+  allSkeleton.forEach(item=> {
+    item.classList.remove('skeleton')
+    document.getElementById("skelecton_bg").style.display = 'none';
+  })
+})
+
 
 </script>
 
