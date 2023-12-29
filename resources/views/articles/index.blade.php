@@ -19,27 +19,27 @@
 
 
 <div class="article_page">
-	<div class="container">
-        <div class="article_bar">
+	<main class="container">
+        <section class="article_bar">
             @if ($articles)
                 @foreach ($articles as $article)
-                    <div class="article skeleton">
-                        <div class="date">{{ \Carbon\Carbon::parse($article->created_at)->format('d M Y') }}</div>
-                        <div class="article_title">{{$article->title}}</div>
-                        <div class="article_content">{!! Str::limit(strip_tags($article->content), 120, ' ...') !!}</div>
+                    <article class="article skeleton">
+                        <time class="date">{{ \Carbon\Carbon::parse($article->created_at)->format('d M Y') }}</time>
+                        <header class="article_title">{{$article->title}}</header>
+                        <figure class="article_content">{!! Str::limit(strip_tags($article->content), 120, ' ...') !!}</figure>
                         <div class="article_views"><a href="{{ Route('articles.show', $article->slug) }}" class="see_more">See More </a>
                         <p> <span class="iconify" data-icon="carbon:view-filled"></span>
                             {!! views($article)->count() !!}
                         </p></div>
-                    </div>
+                    </article>
                 @endforeach
                 <div class="event_paginate">
                     {!! $articles->links() !!}
                 </div>
             @endif
-        </div>
+        </section>
 
-        <div class="quote_bar">
+        <aside class="quote_bar">
             @if ($quotes)
                 @foreach ($quotes as $quote)
                     <div class="quote skeleton">
@@ -47,9 +47,9 @@
                     </div>
                 @endforeach
             @endif
-        </div>
+        </aside>
 
-	</div>
+	</main>
 </div>
 
 

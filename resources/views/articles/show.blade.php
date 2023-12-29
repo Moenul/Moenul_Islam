@@ -1,5 +1,13 @@
 @extends('layouts.app')
-
+@section('social_meta')
+    @if ($article)
+        <meta property="og:url" content="{{url()->current()}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="{{$article->title}}" />
+        <meta property="og:description" content="{{ $article->tags }}" />
+        <meta property="og:image" content="{{ asset('images/Logo.webp') }}" />
+    @endif
+@endsection
 @section('content')
 
 {{-- Loadin Animation --}}
@@ -18,13 +26,13 @@
 
 
 <div class="article_page">
-	<div class="container">
+	<main class="container">
         {{-- <div class="article_bar"> --}}
-            <div class="article_section">
+            <article class="article_section">
                 @if ($article)
-                <div class="article_title skeleton">{{$article->title}}</div>
+                <header class="article_title skeleton">{{$article->title}}</header>
                 <div class="row skeleton">
-                    <div class="col-md-4 date"><iconify-icon icon="solar:calendar-date-linear"></iconify-icon> {{ \Carbon\Carbon::parse($article->created_at)->format('d M Y') }}</div>
+                    <time class="col-md-4 date"><iconify-icon icon="solar:calendar-date-linear"></iconify-icon> {{ \Carbon\Carbon::parse($article->created_at)->format('d M Y') }}</time>
                     <div class="col-md-4 views"><iconify-icon icon="subway:eye"></iconify-icon> {!! views($article)->count() !!} Views</div>
                     <div class="col-md-4 read_time"><iconify-icon icon="bi:clock"></iconify-icon> {{$article->read_time}}</div>
                 </div>
@@ -32,7 +40,7 @@
                     <input type="hidden" name="" value="{{ $article->tags }}">
                 </div>
                 <div class="article_author ">
-                    <div class="author_img skeleton"><img src="{{ $article->user->photo ? $article->user->photo->file : '/images/DummyProfile.jpg' }}" alt=""></div>
+                    <div class="author_img skeleton"><img src="{{ $article->user->photo ? $article->user->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $article->user->name }}"></div>
                     <div class="author_desc skeleton">
                         <div class="author_name">{{$article->user->name}}</div>
                         <div class="author_title">
@@ -45,12 +53,12 @@
                     </div>
                 </div>
 
-                <div class="article_desc mt-3 skeleton">
+                <figure class="article_desc mt-3 skeleton">
                     {!! $article->content !!}
-                </div>
+                </figure>
 
 
-                <div class="share_section skeleton">
+                <footer class="share_section skeleton">
                     <ul>
                         <input value="{{url()->current()}}" id="copyInput" type="hidden">
                         <button id="copyInputBtn">
@@ -65,12 +73,12 @@
                         <a href="https://www.linkedin.com/shareArticle?url={{url()->current()}}&title={{$article->title}}" target="_blank"><li><iconify-icon icon="akar-icons:linkedin-fill"></iconify-icon></li></a>
                         <a href="whatsapp://send?text={{url()->current()}}" target="_blank"><li><iconify-icon icon="ri:whatsapp-fill"></iconify-icon></li></a>
                     </ul>
-                </div>
+                </footer>
 
             @endif
-            </div>
+            </article>
         {{-- </div> --}}
-	</div>
+	</main>
 </div>
 
 

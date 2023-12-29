@@ -3,7 +3,10 @@
 <head>
     <meta charset="utf-8" name="description" content="Author: Moenul Islam, Work: Full Stack Web Developer | UI/UX Web Designer, Passion: Artical Writer, Skill : Web Design, Backend Develop, SEO, HTML, CSS, Js, Javascript, Ajax, Laravel, PHP, MySql">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    @yield('social_meta')
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href=" {{ asset('css/bootstrap.min.css') }} ">
 	<link rel="stylesheet" href=" {{ asset('css/main.css') }} ">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
