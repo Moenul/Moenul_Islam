@@ -66,6 +66,10 @@ Route::group(['middleware' => 'admin'], function(){
         'show'=>'admin.mails.show'
     ]]);
 
+    Route::resource('/admin/profile', 'AdminProfileController', ['names'=>[
+        'index'=>'admin.profile.index'
+    ]]);
+
 });
 
 Route::resource('/articles', 'ArticlesController', ['names'=>[

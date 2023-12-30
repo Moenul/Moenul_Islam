@@ -77,7 +77,7 @@
                     <img src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images.jpg' }}" alt="{{$gallery->desc}}">
                     <div class="gallary_item_hover">
                         <div class="item_desc">{{$gallery->desc}}</div>
-                        <a href="{{$gallery->link}}"><div class="item_button">Visit Website</div></a>
+                        <a href="{{$gallery->link}}" target="_blank"><div class="item_button">Visit Website</div></a>
                     </div>
                 </div>
                 @endforeach
@@ -138,7 +138,7 @@
                 <div class="social_bar">
                     @if ($socials)
                         @foreach ($socials as $social)
-                        <a href="{{$social->social_link}}">
+                        <a href="{{$social->social_link}}" target="_blank">
                             <div class="social_iteml" style="color:{{$social->icon_color}};">
                                 <iconify-icon icon="{{$social->social_icon}}"></iconify-icon>
                             </div>

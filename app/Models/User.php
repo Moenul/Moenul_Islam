@@ -66,7 +66,12 @@ class User extends Authenticatable
 
     public function article()
     {
-        return $this->belongsTo('App\Models\Article');
+        return $this->hasMany('App\Models\Article');
+    }
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Models\Photo');
     }
 
     /**

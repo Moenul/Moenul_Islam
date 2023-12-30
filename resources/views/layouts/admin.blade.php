@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <title>Admin Pannel</title>
 
 @yield('style')
@@ -17,22 +19,24 @@
 @include('includes.flash-message')
 
 
-@yield('admin_nav_bar')
 
+{{-- Side Nav Section --}}
+    @yield('admin_side_nav')
+{{-- Side Nav Section --}}
 
-<div class="mainSection">
+{{-- Content Section --}}
+<div class="content_section">
 
+    {{-- Nav Bar --}}
+        @yield('admin_nav_bar')
+    {{-- Nav Bar --}}
 
-	@yield('admin_side_nav')
-
-
-
-
-    @yield('content')
-
+    {{-- Content Bar --}}
+        @yield('content')
+    {{-- Content Bar --}}
 
 </div>
-
+{{-- Content Section --}}
 
 
 <!-- Optional JavaScript -->
