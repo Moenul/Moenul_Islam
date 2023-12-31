@@ -69,8 +69,8 @@
                         </button>
 
                         <a href="https://twitter.com/intent/tweet?url={{url()->current()}}" target="_blank"><li><iconify-icon icon="line-md:twitter-x-alt"></iconify-icon></li></a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}.com&display=popup" target="_blank"><li><iconify-icon icon="gg:facebook"></iconify-icon></li></a>
-                        <a href="https://www.linkedin.com/shareArticle?url={{url()->current()}}&title={{$article->title}}" target="_blank"><li><iconify-icon icon="akar-icons:linkedin-fill"></iconify-icon></li></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}&display=popup" target="_blank"><li><iconify-icon icon="gg:facebook"></iconify-icon></li></a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{url()->current()}}" target="_blank"><li><iconify-icon icon="akar-icons:linkedin-fill"></iconify-icon></li></a>
                         <a href="whatsapp://send?text={{url()->current()}}" target="_blank"><li><iconify-icon icon="ri:whatsapp-fill"></iconify-icon></li></a>
                     </ul>
                 </footer>

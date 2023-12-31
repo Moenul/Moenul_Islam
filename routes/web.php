@@ -79,6 +79,12 @@ Route::resource('/articles', 'ArticlesController', ['names'=>[
 
 Route::post('contactMail', 'ContactMailsController@store');
 
+Route::get('/privacy_policy ', function () {
+    return view('privacy_policy');
+});
+Route::get('/terms_and_condition ', function () {
+    return view('terms_and_condition');
+});
 
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 
