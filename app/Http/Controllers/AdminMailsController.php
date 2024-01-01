@@ -42,14 +42,14 @@ class AdminMailsController extends Controller
         $contact_email = $request->email;
         $contact_subject = $request->subject;
         $contact_message = $request->message;
-
+        $brand_logo = asset('images/Logo.webp');
 
         // return dd($file);
         $email_data = explode('@', $request->email);
         $name = $email_data[0];
 
 
-        $data = array( 'name'=> $name, 'email' => $contact_email, 'subject' => $contact_subject, 'messages' => $contact_message, 'desc' => $mail_desc, 'attachment' => $attachment );
+        $data = array( 'name'=> $name, 'email' => $contact_email, 'subject' => $contact_subject, 'messages' => $contact_message, 'desc' => $mail_desc, 'attachment' => $attachment, 'brand_logo' => $brand_logo );
         Mail::send('admin/mail', $data, function($message) use ($data){
             $message->to($data['email'], $data['name'])->subject('Reply of - '. $data['subject']);
             if($data['attachment'] !== Null){
@@ -60,7 +60,7 @@ class AdminMailsController extends Controller
                     ]);
                 }
             }
-            $message->from('bhuiyansab5@gmail.com' ,'Bijoy Bhuiyan');
+            $message->from('support@moenul.me' ,'Moenul Islam');
         });
 
         return redirect()->back()->with('success', 'Mail successfully send!');

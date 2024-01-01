@@ -48,7 +48,7 @@
                     @endif
 
                     <div class="form-group">
-                        {!! Form::textarea('desc', null, ['class'=>'form-control','rows'=>4, 'cols'=>20, 'placeholder'=>'Write Here ...']) !!}
+                        {!! Form::textarea('desc', null, ['class'=>'form-control','id'=>'editor','rows'=>4, 'cols'=>20, 'placeholder'=>'Write Here ...']) !!}
                     </div>
                     <div class="form-group">
                         <label for="file">Add Atachments :</label>
