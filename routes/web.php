@@ -38,6 +38,8 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.galleries.edit'
     ]]);
 
+    Route::post('/admin/galleries-reorder', ['App\Http\Controllers\AdminGalleriesController', 'reorder'])->name('admin.galleries-reorder');
+
     Route::resource('/admin/socials', 'AdminSocialsController', ['names'=>[
         'index'=>'admin.socials.index',
         'edit'=>'admin.socials.edit'

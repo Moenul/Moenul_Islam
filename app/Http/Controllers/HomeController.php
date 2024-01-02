@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $services = Service::take(3)->get();
-        $galleries = Gallery::latest()->with('photo')->get();
+        $galleries = Gallery::where('status', 1)->orderBy('order','ASC')->with('photo')->get();
         $socials = Social::all();
 
         return view('home', compact('services','galleries','socials'));

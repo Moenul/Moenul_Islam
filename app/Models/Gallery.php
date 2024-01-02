@@ -13,6 +13,8 @@ class Gallery extends Model
         'photo_id',
         'desc',
         'link',
+        'order',
+        'status',
     ];
 
     public function photo()

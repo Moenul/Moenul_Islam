@@ -6,8 +6,10 @@
 
 
 <div class="container" style="width: 500px; height: auto; margin: 0 auto; border: 1px solid #dadada; border-radius: 4px; background: #fbf5ee; overflow: hidden; font-family: system-ui;" >
-	<div class="brand" style="width: 100%; display: flex; justify-content: center; background: #464646; padding: 10px 0px;">
-		<img style="width:100px; height: auto;" src="{{ asset('images/Logo.webp') }}" alt="Moenul Islam">
+	<div class="brand" style="width: 100%; text-align: center; background: #464646; padding: 10px 0px;">
+		<div class="image" style="width:100px; height: auto; margin:0 auto;">
+            <img style="width:100px; height: auto;" src="{{ asset('images/Logo.png') }}" alt="Moenul Islam">
+        </div>
 	</div>
 	<div class="desc" style="padding: 10px;">
 		<h2>Hello, {{ $name }}</h2>

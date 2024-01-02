@@ -16,7 +16,7 @@ class AdminGalleriesController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::latest()->with('photo')->get();
+        $galleries = Gallery::with('photo')->get();
         return view('admin.galleries.index', compact('galleries'));
     }
 
@@ -131,6 +131,23 @@ class AdminGalleriesController extends Controller
         $gallery->update($input);
 
         return redirect('/admin/galleries')->with('success', 'Gallery Item Successfully Updated!');
+    }
+
+
+    public function reorder(Request $request)
+    {
+        $galleries = Gallery::all();
+
+        foreach ($galleries as $gallery) {
+
+            foreach ($request->order as $order) {
+                if ($order['id'] == $gallery->id) {
+                    $gallery->update(['order' => $order['position']]);
+                }
+            }
+        }
+
+        return response(['message' => 'Update Successfully'], 200);
     }
 
     /**
