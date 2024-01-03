@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class AdminMgArticlesController extends Controller
 {
@@ -40,7 +41,11 @@ class AdminMgArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        Article::create($request->all());
+        $input = $request->all();
+        $input['slug'] = Str::slug($request->title);
+
+        Article::create($input);
+
         return redirect('admin/mgArticles')->with('success', 'Article Successfully Created!');
     }
 
@@ -79,7 +84,13 @@ class AdminMgArticlesController extends Controller
     public function update(Request $request, $id)
     {
         $article = Article::findOrFail($id);
-        $article->update($request->all());
+
+        $input = $request->all();
+
+        $input['slug'] = Str::slug($request->title);
+
+        $article->update($input);
+
 
         return redirect('admin/mgArticles')->with('success', 'Article Updated!');
     }

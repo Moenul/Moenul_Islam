@@ -1535,6 +1535,13 @@ body {
     top: -40px;
     left: 40px;
 }
+
+.contact_section .contact_bar .social_section .social_bar .social_iteml {
+    width: 55px;
+    height: 55px;
+    font-size: 55px;
+}
+
 .article_page {
     margin-top: 70px;
     margin-bottom: 50px;
@@ -1682,11 +1689,7 @@ body {
     right: 10px;
 }
 
-.contact_section .contact_bar .social_section .social_bar .social_iteml {
-    width: 65px;
-    height: 65px;
-    font-size: 65px;
-}
+
 
 /* /// iPhone 12 Pro ///  Update Section Start ------------------- */
 .updates_section .notice_section .section_bar .notice_bar .notice_box .notice_title {
