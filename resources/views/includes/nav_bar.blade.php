@@ -8,7 +8,7 @@
             <a href="{{ url('/') }}"><li><iconify-icon icon="iconoir:home"></iconify-icon> <span>Home</span></li></a>
             <a href="{{ url('/#gallary') }}"><li><iconify-icon icon="solar:camera-broken"></iconify-icon> <span>Gallary</span></li></a>
             <a href="{{ url('/articles') }}"><li><iconify-icon icon="circum:pen" rotate="270deg"></iconify-icon> <span>Articles</span></li></a>
-            <a href="{{ url('pdfs/Moenul_Islam_Resume.pdf') }}"><li><iconify-icon icon="solar:notes-broken"></iconify-icon> <span>Resume</span></li></a>
+            <a href="{!! url(App\Models\User::where('role_id', '=', 1)->first()->cv->file) !!}"><li><iconify-icon icon="solar:notes-broken"></iconify-icon> <span>Resume</span></li></a>
             <a href="{{ url('/#contact') }}"><li><iconify-icon icon="solar:call-chat-outline"></iconify-icon> <span>Say hello?</span></li></a>
 
             @if (Auth::check())

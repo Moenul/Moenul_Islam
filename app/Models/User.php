@@ -28,6 +28,7 @@ class User extends Authenticatable
         'provider',
         'provider_id',
         'provider_token',
+        'cv_id',
     ];
 
 
@@ -72,6 +73,11 @@ class User extends Authenticatable
     public function photo()
     {
         return $this->belongsTo('App\Models\Photo');
+    }
+
+    public function cv()
+    {
+        return $this->belongsTo('App\Models\Photo','cv_id');
     }
 
     /**

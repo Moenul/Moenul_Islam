@@ -102,6 +102,24 @@ class AdminProfileController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
+
+        if ($profile->cv_id !== null) {
+            unlink(public_path() . $profile->cv->file);
+
+            $cv = $profile->cv->id;
+            Photo::findOrFail($cv)->delete();
+        }
+
+        if($file = $request->file('cv_id')){
+            $name = $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['cv_id'] = $photo->id;
+        }
+
         $profile->update($input);
 
         return redirect('/admin/profile')->with('success', 'Profile Successfully Updated!');

@@ -84,6 +84,11 @@
                         {!! Form::file('photo_id', ['id' => 'imgInp'], null) !!}
                     </div>
                     <div class="form-group">
+                        {!! Form::label('cv_id', 'CV Pdf:') !!}
+                        {!! Form::file('cv_id', null) !!}
+                        <small class="form-text text-muted">{{ $profile->cv ? $profile->cv->file : 'Null' }}</small>
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('title','Profile Title:') !!}
                         {!! Form::text('title', $profile->title, ['class'=>'form-control']) !!}
                     </div>
