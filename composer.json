@@ -17,7 +17,8 @@
         "laravel/socialite": "^5.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "laravelcollective/html": "^6.4"
+        "laravelcollective/html": "^6.4",
+        "stevebauman/location": "^6.6"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

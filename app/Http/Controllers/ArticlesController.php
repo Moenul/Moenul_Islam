@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Quote;
 use App\Models\Photo;
+use App\Models\Visitor;
+use \Carbon\Carbon;
 
 class ArticlesController extends Controller
 {
@@ -30,6 +32,25 @@ class ArticlesController extends Controller
             $quotes = Quote::take(1000)->get()->random(3);
         }else{
             $quotes = Quote::latest()->get();
+        }
+
+
+        $ip = $request->ip();
+
+        // Today Visitors Access
+        $today = \Carbon\Carbon::today()->format('Y-m-d');
+        $visitors = Visitor::where('page', 'Article')->whereDate('created_at','=',$today)->get();
+
+        foreach($visitors as $visitor){
+            if($visitor->ip_address == $ip){
+                $old_visitor = $visitor;
+            }
+        }
+
+        if(! empty($old_visitor)){
+            $old_visitor->increment('visits');
+        }else{
+            Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
         }
 
         return view('articles.index', compact('articles','quotes'));

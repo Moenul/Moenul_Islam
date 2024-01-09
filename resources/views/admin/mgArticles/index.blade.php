@@ -44,7 +44,7 @@
                 <div class="col-4"></div>
                 <div class="col-6">
                     <div class="tb_search">
-                        <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()" placeholder="Search Student by Keyward ..." class="form-control">
+                        <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()" placeholder="Search Article by Keyward ..." class="form-control">
                     </div>
                 </div>
             </div>
@@ -61,9 +61,7 @@
                         <th>Today Views</th>
                         <th>Total Views</th>
                         <th>Unique Views</th>
-                        <th>Show</th>
-                        <th style="width:80px; text-align:center;">Edit</th>
-                        <th style="width:80px; text-align:center;">Delete</th>
+                        <th style="width:80px; text-align:center;">Action</th>
                     </tr>
                     </thead>
                     @if ($articles)
@@ -76,13 +74,16 @@
                             <td>{!! views($article)->period(CyrildeWit\EloquentViewable\Support\Period::create(\Carbon\Carbon::today()))->count(); !!}</td>
                             <td>{!! views($article)->count() !!}</td>
                             <td>{!! views($article)->unique()->count() !!}</td>
-                            <td><a href="{{ Route('articles.show', $article->slug) }}" class="btn btn-sm btn-primary">Show</a></td>
-                            <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.mgArticles.edit', $article->id) }}"><i class="far fa-edit text-warning"></i></a></td>
-                            <td>
-                            {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminMgArticlesController@destroy', $article->id]]) !!}
-                                {{ Form::button('<i class="fas fa-trash-alt text-danger"></i>', ['type' => 'submit', 'class' => 'btn'] )  }}
-                            {!! Form::close() !!}
+
+                            <td style="display: flex; justify-content: center; align-items: center;">
+                                <a class="btn btn-sm btn-primary" href="{{ Route('articles.show', $article->slug) }}">Show</a>
+                                <a class="btn" href="{{ Route('admin.mgArticles.edit', $article->id) }}"><i class="far fa-edit text-warning"></i></a>
+
+                                {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminMgArticlesController@destroy', $article->id]]) !!}
+                                    {{ Form::button('<i class="fas fa-trash-alt text-danger"></i>', ['type' => 'submit', 'class' => 'btn'] )  }}
+                                {!! Form::close() !!}
                             </td>
+
                         </tr>
                         @endforeach
                     </tbody>

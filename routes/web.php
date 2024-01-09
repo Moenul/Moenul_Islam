@@ -28,6 +28,8 @@ Route::group(['middleware' => 'admin'], function(){
         return view('admin.index');
     });
 
+    Route::get('/admin', 'AdminDashboardController@index');
+
     Route::resource('/admin/services', 'AdminServicesController', ['names'=>[
         'index'=>'admin.services.index',
         'edit'=>'admin.services.edit'
