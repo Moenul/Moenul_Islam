@@ -9,6 +9,7 @@ use App\Models\Social;
 use App\Models\Photo;
 use App\Models\Visitor;
 use \Carbon\Carbon;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -33,23 +34,50 @@ class HomeController extends Controller
         $galleries = Gallery::where('status', 1)->orderBy('order','ASC')->with('photo')->get();
         $socials = Social::all();
 
-        $ip = $request->ip();
+        if (Auth::check()){
+            if (Auth::user()->isAdmin()){
 
-        // Today Visitors Access
-        $today = \Carbon\Carbon::today()->format('Y-m-d');
-        $visitors = Visitor::where('page', 'Home')->whereDate('created_at','=',$today)->get();
+            }else{
+                $ip = $request->ip();
 
-        foreach($visitors as $visitor){
-            if($visitor->ip_address == $ip){
-                $old_visitor = $visitor;
+                // Today Visitors Access
+                $today = \Carbon\Carbon::today()->format('Y-m-d');
+                $visitors = Visitor::where('page', 'Home')->whereDate('created_at','=',$today)->get();
+
+                foreach($visitors as $visitor){
+                    if($visitor->ip_address == $ip){
+                        $old_visitor = $visitor;
+                    }
+                }
+
+                if(! empty($old_visitor)){
+                    $old_visitor->increment('visits');
+                }else{
+                    Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1]);
+                }
             }
+        }else{
+
+            $ip = $request->ip();
+
+            // Today Visitors Access
+            $today = \Carbon\Carbon::today()->format('Y-m-d');
+            $visitors = Visitor::where('page', 'Home')->whereDate('created_at','=',$today)->get();
+
+            foreach($visitors as $visitor){
+                if($visitor->ip_address == $ip){
+                    $old_visitor = $visitor;
+                }
+            }
+
+            if(! empty($old_visitor)){
+                $old_visitor->increment('visits');
+            }else{
+                Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1]);
+            }
+
         }
 
-        if(! empty($old_visitor)){
-            $old_visitor->increment('visits');
-        }else{
-            Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1]);
-        }
 
         return view('home', compact('services','galleries','socials'));
     }

@@ -8,6 +8,7 @@ use App\Models\Quote;
 use App\Models\Photo;
 use App\Models\Visitor;
 use \Carbon\Carbon;
+use Auth;
 
 class ArticlesController extends Controller
 {
@@ -35,22 +36,48 @@ class ArticlesController extends Controller
         }
 
 
-        $ip = $request->ip();
+        if (Auth::check()){
+            if (Auth::user()->isAdmin()){
 
-        // Today Visitors Access
-        $today = \Carbon\Carbon::today()->format('Y-m-d');
-        $visitors = Visitor::where('page', 'Article')->whereDate('created_at','=',$today)->get();
+            }else{
 
-        foreach($visitors as $visitor){
-            if($visitor->ip_address == $ip){
-                $old_visitor = $visitor;
+                $ip = $request->ip();
+
+                // Today Visitors Access
+                $today = \Carbon\Carbon::today()->format('Y-m-d');
+                $visitors = Visitor::where('page', 'Article')->whereDate('created_at','=',$today)->get();
+
+                foreach($visitors as $visitor){
+                    if($visitor->ip_address == $ip){
+                        $old_visitor = $visitor;
+                    }
+                }
+
+                if(! empty($old_visitor)){
+                    $old_visitor->increment('visits');
+                }else{
+                    Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
+                }
             }
-        }
-
-        if(! empty($old_visitor)){
-            $old_visitor->increment('visits');
         }else{
-            Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
+
+            $ip = $request->ip();
+
+            // Today Visitors Access
+            $today = \Carbon\Carbon::today()->format('Y-m-d');
+            $visitors = Visitor::where('page', 'Article')->whereDate('created_at','=',$today)->get();
+
+            foreach($visitors as $visitor){
+                if($visitor->ip_address == $ip){
+                    $old_visitor = $visitor;
+                }
+            }
+
+            if(! empty($old_visitor)){
+                $old_visitor->increment('visits');
+            }else{
+                Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
+            }
         }
 
         return view('articles.index', compact('articles','quotes'));
@@ -87,7 +114,15 @@ class ArticlesController extends Controller
     {
         $article = Article::where('slug', $request)->first();
 
-        views($article)->cooldown($minutes = 5)->record();
+        if (Auth::check()){
+            if (Auth::user()->isAdmin()){
+
+            }else{
+                views($article)->cooldown($minutes = 5)->record();
+            }
+        }else{
+            views($article)->cooldown($minutes = 5)->record();
+        }
 
         return view('articles.show', compact('article'));
     }
