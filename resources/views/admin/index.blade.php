@@ -21,6 +21,20 @@
 
     <!-- start dashboard content -->
     <div class="container">
+
+        {{-- @if ($visitorByDate->count())
+            @foreach ($visitorByDate as $visitors => $veisitorList)
+                {!! $visitors !!},
+                home = {{$veisitorList->where('page','Home')->count()}} - {{$veisitorList->where('page','Home')->sum('visits')}},
+                article = {{$veisitorList->where('page','Article')->count()}} - {{$veisitorList->where('page','Article')->sum('visits')}},
+                {{$veisitorList->sum('visits')}},
+                date = {{$veisitorList->first()->created_at->subDays(1)}}
+
+                article visits {{views(App\Models\Article::class)->period(CyrildeWit\EloquentViewable\Support\Period::create($veisitorList->first()->created_at->subDays(1), $visitors))->count()}}
+                <hr>
+            @endforeach
+        @endif --}}
+
         <div class="panel_section">
             <div class="row">
                 <div class="col-md-3 mb-3">
@@ -163,7 +177,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-3">
-                    <div id="curve_chart" style="width: 1000px; height: 500px"></div>
+                    <div id="curve_chart" style="width: 100%; height: 500px"></div>
                 </div>
             </div>
 
@@ -188,46 +202,14 @@
 
 <script type="text/javascript">
 
+    // date string formating way -----------
     // var date = new Date().toLocaleDateString('en-us', { day:"numeric", month:"short"});
+    // const currentDate = new Date();
+    // let currentDay = currentDate.toDateString(currentDate.setDate(currentDate.getDate() + 0));
+    // let dayTwo = currentDate.toDateString(currentDate.setDate(currentDate.getDate() - 1));
+    // let dayThree = currentDate.toDateString(currentDate.setDate(currentDate.getDate() - 1));
 
-    const currentDate = new Date();
-    let currentDay = currentDate.toDateString(currentDate.setDate(currentDate.getDate() + 0));
-    let dayTwo = currentDate.toDateString(currentDate.setDate(currentDate.getDate() - 1));
-    let dayThree = currentDate.toDateString(currentDate.setDate(currentDate.getDate() - 1));
-    let dayFour = currentDate.toDateString(currentDate.setDate(currentDate.getDate() - 1));
-    let dayFive = currentDate.toDateString(currentDate.setDate(currentDate.getDate() - 1));
-    let daySix = currentDate.toDateString(currentDate.setDate(currentDate.getDate() - 1));
-    let daySeven = currentDate.toDateString(currentDate.setDate(currentDate.getDate() - 1));
-
-
-    var today_visitors = {{$today_visitors->sum('visits')}}
-    var today_unique_visitors = {{$today_visitors->count()}}
-    var today_Article_visitors = {{$today_Article_visitors->sum('visits')}}
-
-    var oneDayAgo_visitors = {{$oneDayAgo_visitors->sum('visits')}}
-    var oneDayAgo_unique_visitors = {{$oneDayAgo_visitors->count()}}
-    var oneDayAgo_Article_visitors = {{$oneDayAgo_Article_visitors->sum('visits')}}
-
-    var towDaysAgo_visitors = {{$towDaysAgo_visitors->sum('visits')}}
-    var towDaysAgo_unique_visitors = {{$towDaysAgo_visitors->count()}}
-    var towDaysAgo_Article_visitors = {{$towDaysAgo_Article_visitors->sum('visits')}}
-
-    var threeDaysAgo_visitors = {{$threeDaysAgo_visitors->sum('visits')}}
-    var threeDaysAgo_unique_visitors = {{$threeDaysAgo_visitors->count()}}
-    var threeDaysAgo_Article_visitors = {{$threeDaysAgo_Article_visitors->sum('visits')}}
-
-    var fourDaysAgo_visitors = {{$fourDaysAgo_visitors->sum('visits')}}
-    var fourDaysAgo_unique_visitors = {{$fourDaysAgo_visitors->count()}}
-    var fourDaysAgo_Article_visitors = {{$fourDaysAgo_Article_visitors->sum('visits')}}
-
-    var fiveDaysAgo_visitors = {{$fiveDaysAgo_visitors->sum('visits')}}
-    var fiveDaysAgo_unique_visitors = {{$fiveDaysAgo_visitors->count()}}
-    var fiveDaysAgo_Article_visitors = {{$fiveDaysAgo_Article_visitors->sum('visits')}}
-
-    var sixDaysAgo_visitors = {{$sixDaysAgo_visitors->sum('visits')}}
-    var sixDaysAgo_unique_visitors = {{$sixDaysAgo_visitors->count()}}
-    var sixDaysAgo_Article_visitors = {{$sixDaysAgo_Article_visitors->sum('visits')}}
-
+    // date string formating way -----------
 
 
     google.charts.load('current', {'packages':['corechart']});
@@ -236,20 +218,19 @@
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
 
-        ['Day', 'Visits', 'Unique Visits', 'Article Page Visits'],
-        [daySeven,  sixDaysAgo_visitors,      sixDaysAgo_unique_visitors,   sixDaysAgo_Article_visitors],
-        [daySix,  fiveDaysAgo_visitors,      fiveDaysAgo_unique_visitors,   fiveDaysAgo_Article_visitors],
-        [dayFive,  fourDaysAgo_visitors,      fourDaysAgo_unique_visitors,    fourDaysAgo_Article_visitors],
-        [dayFour,  threeDaysAgo_visitors,      threeDaysAgo_unique_visitors,    threeDaysAgo_Article_visitors],
-        [dayThree,  towDaysAgo_visitors,      towDaysAgo_unique_visitors,   towDaysAgo_Article_visitors],
-        [dayTwo,  oneDayAgo_visitors,      oneDayAgo_unique_visitors,   oneDayAgo_Article_visitors],
-        [currentDay,  today_visitors,      today_unique_visitors,   today_Article_visitors]
+        ['Day', 'Views', 'Unique Views', 'Article Page View', 'Article Page Unique View','Article Views'],
+
+        @php
+            foreach($visitorByDate as $visitors => $veisitorList) {
+                echo "['".$visitors."', ".$veisitorList->where('page','Home')->sum('visits').", ".$veisitorList->where('page','Home')->count().", ".$veisitorList->where('page','Article')->sum('visits').", ".$veisitorList->where('page','Article')->count().", ".views(App\Models\Article::class)->period(CyrildeWit\EloquentViewable\Support\Period::create($veisitorList->first()->created_at->subDays(1), $visitors))->count()."],";
+            }
+        @endphp
       ]);
 
       var options = {
         title: 'Company Performance',
         curveType: 'function',
-        legend: { position: 'bottom' }
+        legend: { position: 'right' }
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -269,12 +250,11 @@
 	function drawRegionsMap() {
 	  var data = google.visualization.arrayToDataTable([
 		['Country', 'Popularity'],
-		['Germany', 200],
-		['United States', 300],
-		['Brazil', 400],
-		['Canada', 500],
-		['France', 600],
-		['RU', 700]
+        @php
+            foreach($visitorByCountry as $visitors => $veisitorList) {
+                echo "['".$visitors."', ".$veisitorList->count()."],";
+            }
+        @endphp
 	  ]);
 
 	  var options = {};
@@ -303,15 +283,17 @@
 	  data.addColumn('string', 'Topping');
 	  data.addColumn('number', 'Slices');
 	  data.addRows([
-		['Mushrooms', 3],
-		['Onions', 1],
-		['Olives', 1],
-		['Zucchini', 1],
-		['Pepperoni', 2]
+
+        @php
+            foreach($visitorByCountry as $visitors => $veisitorList) {
+                echo "['".$visitors."', ".$veisitorList->count()."],";
+            }
+        @endphp
+
 	  ]);
 
 	  // Set chart options
-	  var options = {'title':'How Much Pizza I Ate Last Night',
+	  var options = {'title':'Visitor trafic by country in last 30 days',
 					 'width':400,
 					 'height':350};
 

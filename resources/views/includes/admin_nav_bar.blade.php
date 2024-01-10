@@ -45,6 +45,7 @@
 		<li class="nav_item profile"><i class="far fa-profile"> <img src="{{ Auth::user()->photo ? Auth::user()->photo->file : '/images/DummyProfile.jpg' }}"></i>
 			<div class="dropdown">
 				<div class="dropdown_title">Profile</div>
+				<a href="{{ url('/') }}">Home</a>
 				<a href="{{ route('admin.profile.index') }}">Profile</a>
 				<a href="{{ route('logout') }}">Log Out</a>
 			</div>

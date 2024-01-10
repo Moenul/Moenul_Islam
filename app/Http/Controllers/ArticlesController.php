@@ -9,6 +9,7 @@ use App\Models\Photo;
 use App\Models\Visitor;
 use \Carbon\Carbon;
 use Auth;
+use Stevebauman\Location\Facades\Location;
 
 class ArticlesController extends Controller
 {
@@ -56,7 +57,12 @@ class ArticlesController extends Controller
                 if(! empty($old_visitor)){
                     $old_visitor->increment('visits');
                 }else{
-                    Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
+                    $location = Location::get($ip);
+                    if($location == true){
+                        Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1, 'countryName'=>$location->countryName, 'countryCode'=> $location->countryCode]);
+                    }else{
+                        Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
+                    }
                 }
             }
         }else{
@@ -76,7 +82,12 @@ class ArticlesController extends Controller
             if(! empty($old_visitor)){
                 $old_visitor->increment('visits');
             }else{
-                Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
+                $location = Location::get($ip);
+                if($location == true){
+                    Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1, 'countryName'=>$location->countryName, 'countryCode'=> $location->countryCode]);
+                }else{
+                    Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
+                }
             }
         }
 
@@ -122,6 +133,21 @@ class ArticlesController extends Controller
             }
         }else{
             views($article)->cooldown($minutes = 5)->record();
+
+            $ip = \Request::ip();
+            // Today Visitors Access
+            $today = \Carbon\Carbon::today()->format('Y-m-d');
+            $visitors = Visitor::whereDate('created_at','=',$today)->get();
+
+            if(!$visitors->count()){
+                $location = Location::get($ip);
+                if($location == true){
+                    Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1, 'countryName'=>$location->countryName, 'countryCode'=> $location->countryCode]);
+                }else{
+                    Visitor::create(['ip_address'=>$ip, 'page'=>'Article', 'visits'=> 1]);
+                }
+            }
+
         }
 
         return view('articles.show', compact('article'));

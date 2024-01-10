@@ -13,5 +13,7 @@ class Visitor extends Model
         'ip_address',
         'page',
         'visits',
+        'countryName',
+        'countryCode',
     ];
 }

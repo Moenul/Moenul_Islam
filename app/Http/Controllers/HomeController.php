@@ -10,6 +10,7 @@ use App\Models\Photo;
 use App\Models\Visitor;
 use \Carbon\Carbon;
 use Auth;
+use Stevebauman\Location\Facades\Location;
 
 class HomeController extends Controller
 {
@@ -53,7 +54,12 @@ class HomeController extends Controller
                 if(! empty($old_visitor)){
                     $old_visitor->increment('visits');
                 }else{
-                    Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1]);
+                    $location = Location::get($ip);
+                    if($location == true){
+                        Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1, 'countryName'=>$location->countryName, 'countryCode'=> $location->countryCode]);
+                    }else{
+                        Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1]);
+                    }
                 }
             }
         }else{
@@ -73,7 +79,12 @@ class HomeController extends Controller
             if(! empty($old_visitor)){
                 $old_visitor->increment('visits');
             }else{
-                Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1]);
+                $location = Location::get($ip);
+                if($location == true){
+                    Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1, 'countryName'=>$location->countryName, 'countryCode'=> $location->countryCode]);
+                }else{
+                    Visitor::create(['ip_address'=>$ip, 'page'=>'Home', 'visits'=> 1]);
+                }
             }
 
         }
