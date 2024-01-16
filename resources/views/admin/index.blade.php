@@ -81,7 +81,7 @@
                     <div class="panel">
                         <div class="details_section">
                             <div class="name">Category Name</div>
-                            <div class="counts">43056</div>
+                            <div class="counts">0</div>
                             <div class="desc">Since last month</div>
                         </div>
                         <div class="icon_section bg-success">
@@ -94,7 +94,7 @@
                     <div class="panel">
                         <div class="details_section">
                             <div class="name">Category Name</div>
-                            <div class="counts">43056</div>
+                            <div class="counts">0</div>
                             <div class="desc">Since last month</div>
                         </div>
                         <div class="icon_section bg-info">
