@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CkUploadController;
 use App\Http\Controllers\Auth\ProviderController;
+use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,16 @@ use App\Http\Controllers\Auth\ProviderController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('route:clear');
+    Artisan::call('optimize:clear');
+    Artisan::call('optimize');
+
+    return "Cached cleared!";
+});
 
 Route::get('/', function () {
     return view('home');
